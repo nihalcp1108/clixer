@@ -73,7 +73,12 @@ export default function ContactSection() {
 
           {/* Right Column: SACO Company Branding Box */}
           <div className="contact-card-box">
-            <img src="/images/branding/clixer-logo.png" alt="CLIXER®" className="brand-logo" />
+            <img 
+              src="/images/branding/clixer-logo.png" 
+              alt="CLIXER®" 
+              className="brand-logo" 
+              style={{ filter: 'brightness(0) invert(1)', height: '48px', objectFit: 'contain', marginBottom: '1rem' }} 
+            />
             <h3 style={{ color: '#fff', fontSize: '1.4rem', marginBottom: '0.5rem' }}>{COMPANY_INFO.marketedBy}</h3>
             <span className="badge-304" style={{ background: 'rgba(212,175,55,0.15)', color: 'var(--accent-gold)', border: '1px solid var(--accent-gold)', marginBottom: '1.5rem' }}>
               <ShieldCheck size={14} /> AISI 304 Certified Distributor
@@ -83,7 +88,11 @@ export default function ContactSection() {
               Specializing in high-performance stainless steel linear channel drainers, designer floor grates, anti-odor traps, and tile installation accessories across India.
             </p>
 
-            <img src="/images/branding/saco-logo.png" alt="SACO TRADING" style={{ height: '44px', margin: '0 auto', objectFit: 'contain', filter: 'drop-shadow(0 0 2px rgba(255,255,255,0.8)) drop-shadow(0 4px 8px rgba(0,0,0,0.4))' }} />
+            <img 
+              src="/images/branding/saco-logo.png" 
+              alt="SACO TRADING" 
+              style={{ height: '44px', margin: '0 auto', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
+            />
           </div>
         </div>
       </div>

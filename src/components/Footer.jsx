@@ -16,7 +16,7 @@ export default function Footer({ onSelectCategory }) {
         <div className="footer-grid">
           {/* Col 1: Brand Info */}
           <div>
-            <img src="/images/branding/clixer-logo.png" alt="CLIXER®" style={{ height: '38px', marginBottom: '1rem', objectFit: 'contain' }} />
+            <img src="/images/branding/clixer-logo.png" alt="CLIXER®" style={{ height: '38px', marginBottom: '1rem', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
             <p style={{ fontSize: '0.9rem', color: 'var(--text-light)', lineHeight: 1.6, marginBottom: '1rem' }}>
               "{COMPANY_INFO.tagline}"
             </p>
