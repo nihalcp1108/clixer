@@ -21,7 +21,7 @@ export default function BrandLogos() {
     {
       name: COMPANY_INFO.marketedBy,
       subtitle: "Exclusive Marketing Partner",
-      logo: "/images/branding/saco-logo-lg.png",
+      logo: "/images/branding/saco-logo.png",
       tag: "Verified Distributor",
       badge: <Sparkles size={14} />
     },
