@@ -3,11 +3,11 @@ import SectionTitle from './SectionTitle';
 
 export default function ImageGallery() {
   const galleryItems = [
-    { title: "Catalogue Cover Artwork", category: "Catalogue", image: "/images/catalogue/cover-full.png" },
     { title: "CLX 8002 Linear Channel", category: "Channel Drainers", image: "/images/products/clx-8002.png" },
     { title: "CLX 8005 Wave Drainer", category: "Channel Drainers", image: "/images/products/clx-8005.png" },
     { title: "CLX 8004 Tile Insert Channel", category: "Channel Drainers", image: "/images/products/clx-8004.png" },
     { title: "CLX 801 Designer Square", category: "Designer Drainers", image: "/images/products/clx-801.png" },
+    { title: "CLX 802 Grid Dot Square", category: "Designer Drainers", image: "/images/products/clx-802.png" },
     { title: "CLX 804 Tile Insert Drainer", category: "Designer Drainers", image: "/images/products/clx-804.png" },
     { title: "Stainless Steel Cockroach Bowl", category: "Drain Trap", image: "/images/products/cockroach-bowl.png" },
     { title: "Tile Leveling Jack Kit", category: "Tile Tools", image: "/images/products/tile-leveling-hero.png" },
