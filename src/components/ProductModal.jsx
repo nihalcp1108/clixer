@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { X, ShieldCheck, Check, MessageSquare, Phone } from 'lucide-react';
 import { COMPANY_INFO } from '../data/products';
+import SEO from './SEO/SEO';
+import { generateProductSchema } from '../utils/seo';
+import { SEO_CONFIG } from '../config/seo';
 
 export default function ProductModal({ product, onClose }) {
   useEffect(() => {
@@ -26,8 +29,19 @@ export default function ProductModal({ product, onClose }) {
     `Hello SACO Trading, I would like to inquire about CLIXER product ${product.model} (${product.name}).`
   );
 
+  const productSchema = generateProductSchema(product);
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
+      <SEO
+        title={`${product.name} | ${SEO_CONFIG.siteName}`}
+        description={product.description || product.tagline}
+        canonicalPath={`?product=${product.id}`}
+        ogImage={product.image}
+        ogType="product"
+        structuredData={productSchema}
+      />
+
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close-btn" onClick={onClose} aria-label="Close details">
           <X size={20} />
@@ -36,14 +50,14 @@ export default function ProductModal({ product, onClose }) {
         <div className="modal-content-grid">
           {/* Left Column: Image & Finishes */}
           <div className="modal-image-col">
-            <img src={product.image} alt={product.name} className="main-img" />
+            <img src={product.image} alt={`${product.name} - AISI 304 Stainless Steel`} className="main-img" />
 
             {product.colorsImage && (
               <div style={{ marginTop: '2rem', textAlign: 'center' }}>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '700', display: 'block', marginBottom: '0.5rem' }}>
                   AVAILABLE SURFACE FINISHES
                 </span>
-                <img src={product.colorsImage} alt="Finishes Swatches" style={{ maxHeight: '40px', margin: '0 auto' }} />
+                <img src={product.colorsImage} alt={`${product.name} Available Color Finishes`} style={{ maxHeight: '40px', margin: '0 auto' }} />
               </div>
             )}
           </div>

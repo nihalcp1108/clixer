@@ -11,12 +11,59 @@ import Footer from '../components/Footer';
 import ProductModal from '../components/ProductModal';
 import ScrollToTop from '../components/ScrollToTop';
 import SectionTitle from '../components/SectionTitle';
+import SEO from '../components/SEO/SEO';
+import { getPageStructuredData } from '../components/SEO/StructuredData';
+import { SEO_CONFIG } from '../config/seo';
+import { products, CATEGORIES } from '../data/products';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
   const [activeSection, setActiveSection] = useState('hero');
+
+  // 1. URL Query Parameter Initialization & History Sync for SEO
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const prodId = params.get('product');
+    const catId = params.get('category');
+
+    if (prodId) {
+      const foundProduct = products.find(p => p.id === prodId || p.model?.toLowerCase() === prodId.toLowerCase());
+      if (foundProduct) {
+        setSelectedProduct(foundProduct);
+      }
+    }
+
+    if (catId && CATEGORIES.some(c => c.id === catId)) {
+      setActiveCategory(catId);
+    }
+  }, []);
+
+  // Update URL search params gracefully without full page reload
+  const handleSelectProduct = (product) => {
+    setSelectedProduct(product);
+    const url = new URL(window.location.href);
+    if (product) {
+      url.searchParams.set('product', product.id);
+    } else {
+      url.searchParams.delete('product');
+    }
+    window.history.replaceState({}, '', url.toString());
+  };
+
+  const handleCategoryChange = (catId) => {
+    setActiveCategory(catId);
+    const url = new URL(window.location.href);
+    if (catId && catId !== 'all') {
+      url.searchParams.set('category', catId);
+    } else {
+      url.searchParams.delete('category');
+    }
+    // Remove product param if category changes
+    url.searchParams.delete('product');
+    window.history.replaceState({}, '', url.toString());
+  };
 
   // Track active section on scroll
   useEffect(() => {
@@ -33,20 +80,58 @@ export default function Home() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleSelectCategoryFromNav = (catId) => {
-    setActiveCategory(catId);
+    handleCategoryChange(catId);
     const catalogueEl = document.getElementById('catalogue');
     if (catalogueEl) {
       catalogueEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  // Compute Dynamic SEO Metadata
+  let pageTitle = SEO_CONFIG.defaultTitle;
+  let pageDescription = SEO_CONFIG.defaultDescription;
+  let canonicalPath = '/';
+  let ogImage = SEO_CONFIG.defaultOgImage;
+  let ogType = 'website';
+
+  const categoryObj = CATEGORIES.find(c => c.id === activeCategory);
+  const categoryLabel = categoryObj ? categoryObj.label : null;
+
+  if (selectedProduct) {
+    pageTitle = `${selectedProduct.name} | ${SEO_CONFIG.siteName}`;
+    pageDescription = selectedProduct.description || selectedProduct.tagline;
+    canonicalPath = `?product=${selectedProduct.id}`;
+    ogImage = selectedProduct.image;
+    ogType = 'product';
+  } else if (activeCategory && activeCategory !== 'all' && SEO_CONFIG.categories[activeCategory]) {
+    pageTitle = SEO_CONFIG.categories[activeCategory].title;
+    pageDescription = SEO_CONFIG.categories[activeCategory].description;
+    canonicalPath = `?category=${activeCategory}`;
+  }
+
+  const structuredData = getPageStructuredData({
+    product: selectedProduct,
+    categoryId: activeCategory,
+    categoryLabel: categoryLabel
+  });
+
   return (
     <div className="app-layout">
+      {/* DYNAMIC SEO HEAD SYSTEM */}
+      <SEO
+        title={pageTitle}
+        description={pageDescription}
+        canonicalPath={canonicalPath}
+        ogImage={ogImage}
+        ogType={ogType}
+        structuredData={structuredData}
+      />
+
       {/* 1. NAVIGATION HEADER */}
       <Navbar 
         onOpenMobileMenu={() => setMobileMenuOpen(true)} 
@@ -85,9 +170,9 @@ export default function Home() {
             />
             
             <ProductGrid 
-              onSelectProduct={(product) => setSelectedProduct(product)} 
+              onSelectProduct={(product) => handleSelectProduct(product)} 
               activeCategory={activeCategory}
-              onCategoryChange={(catId) => setActiveCategory(catId)}
+              onCategoryChange={(catId) => handleCategoryChange(catId)}
             />
           </div>
         </section>
@@ -110,7 +195,7 @@ export default function Home() {
       {selectedProduct && (
         <ProductModal 
           product={selectedProduct} 
-          onClose={() => setSelectedProduct(null)} 
+          onClose={() => handleSelectProduct(null)} 
         />
       )}
 
@@ -119,4 +204,3 @@ export default function Home() {
     </div>
   );
 }
-
