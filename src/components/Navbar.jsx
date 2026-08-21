@@ -6,7 +6,7 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 80);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -33,7 +33,7 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
   };
 
   return (
-    <header className={`navbar visible ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`navbar ${scrolled ? 'visible scrolled' : ''}`}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Brand Group */}
         <a href="#hero" className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
