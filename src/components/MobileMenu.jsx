@@ -5,7 +5,7 @@ import { COMPANY_INFO } from '../data/products';
 export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
   const navItems = [
     { label: 'Home', sectionId: 'hero' },
-    { label: 'About Us', sectionId: 'about' },
+    { label: 'About Us', sectionId: 'who-we-are' },
     { label: 'Products', sectionId: 'catalogue', catId: 'all' },
     { label: 'Quality Standards', sectionId: 'quality' },
     { label: 'Applications', sectionId: 'applications' },

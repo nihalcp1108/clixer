@@ -72,7 +72,7 @@ export default function Home() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'who-we-are', 'about', 'catalogue', 'quality', 'applications', 'gallery', 'contact'];
+      const sections = ['hero', 'who-we-are', 'catalogue', 'quality', 'applications', 'gallery', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -157,10 +157,7 @@ export default function Home() {
         {/* 3. WHO WE ARE & TRUST INTRO */}
         <WhoWeAre />
 
-        {/* 4. ABOUT SACO TRADING COMPANY */}
-        <AboutSection />
-
-        {/* 5. PRODUCTS SECTION & CATEGORY FILTER */}
+        {/* 4. PRODUCTS SECTION & CATEGORY FILTER */}
         <section id="catalogue" className="catalogue-section">
           <div className="container">
             <SectionTitle
