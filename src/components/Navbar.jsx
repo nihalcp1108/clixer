@@ -6,7 +6,7 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -33,20 +33,20 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
   };
 
   return (
-    <header className={`navbar ${scrolled ? 'visible scrolled' : ''}`}>
+    <header className={`navbar visible ${scrolled ? 'scrolled' : ''}`}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Brand Group */}
         <a href="#hero" className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
           <img 
             src="/images/branding/saco-logo.png" 
             alt="SACO Trading Company" 
-            style={{ height: '32px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
+            style={{ height: '32px', objectFit: 'contain' }} 
           />
-          <span style={{ color: 'rgba(255,255,255,0.3)', fontWeight: 300, fontSize: '1.2rem' }}>|</span>
+          <span style={{ color: 'var(--text-muted)', fontWeight: 300, fontSize: '1.2rem' }}>|</span>
           <img 
             src="/images/branding/clixer-logo.png" 
             alt="CLIXER®" 
-            style={{ height: '26px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
+            style={{ height: '24px', objectFit: 'contain' }} 
           />
         </a>
 
@@ -81,7 +81,7 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
             onClick={onOpenMobileMenu}
             aria-label="Toggle Navigation Menu"
           >
-            <Menu size={24} color="#ffffff" />
+            <Menu size={24} color="var(--text-main)" />
           </button>
         </div>
       </div>

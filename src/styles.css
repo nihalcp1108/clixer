@@ -2173,150 +2173,141 @@ h1, h2, h3, h4, h5, h6 {
    SACO TRADING B2B OVERHAUL STYLES
    ========================================================================== */
 
-/* B2B Hero Section */
-.b2b-hero-section {
+/* Minimal Corporate Hero Section */
+.minimal-hero-section {
   position: relative;
   width: 100%;
-  height: 100vh;
-  height: 100svh;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background-color: #121214;
+  background-color: #f8f9fa;
+  padding-top: calc(var(--nav-height) + 2.5rem);
+  padding-bottom: 4.5rem;
+  border-bottom: 1px solid var(--light-border);
 }
 
-.b2b-hero-picture {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.b2b-hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-.b2b-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(18, 18, 20, 0.75) 0%, rgba(18, 18, 20, 0.45) 50%, rgba(18, 18, 20, 0.85) 100%);
-  z-index: 2;
-}
-
-.b2b-hero-content {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  padding-top: calc(var(--nav-height) + 1rem);
-}
-
-.b2b-hero-card {
+.minimal-hero-content {
   max-width: 680px;
-  background: rgba(23, 23, 23, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-md);
-  padding: 2.25rem 2.5rem;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  margin: 0 auto;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  align-items: center;
+  animation: fadeUp 0.5s ease-out forwards;
 }
 
-.b2b-hero-eyebrow {
-  display: inline-block;
-  color: var(--accent-gold);
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.minimal-hero-label {
   font-family: var(--font-heading);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  color: var(--primary);
   text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  display: inline-block;
 }
 
-.b2b-hero-heading {
+.minimal-hero-heading {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #171717;
+  line-height: 1.2;
   letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
 }
 
-.b2b-heading-accent {
-  color: var(--metal-silver);
+.minimal-hero-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: #52525b;
+  line-height: 1.65;
+  max-width: 580px;
+  margin-bottom: 2.25rem;
 }
 
-.b2b-hero-subtitle {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.b2b-hero-actions {
+.minimal-hero-buttons {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
 }
 
-.btn-hero-outline {
-  background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+.btn-minimal-primary {
+  background-color: var(--primary);
   color: #ffffff;
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 0.5px;
-  padding: 0.65rem 1.4rem;
+  padding: 0.75rem 1.75rem;
   border-radius: var(--radius-sm);
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  transition: var(--transition-normal);
+  justify-content: center;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+  border: 1.5px solid var(--primary);
 }
 
-.btn-hero-outline:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #ffffff;
+.btn-minimal-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
   color: #ffffff;
 }
 
-.b2b-scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
+.btn-minimal-secondary {
+  background-color: transparent;
+  color: var(--primary);
   font-family: var(--font-heading);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  transition: color 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--primary);
+  transition: background-color 0.25s ease;
 }
 
-.b2b-scroll-indicator:hover {
-  color: #ffffff;
+.btn-minimal-secondary:hover {
+  background-color: rgba(101, 15, 22, 0.06);
+  color: var(--primary);
 }
 
-.scroll-arrow {
-  animation: bounce 2s infinite;
+@media (max-width: 768px) {
+  .minimal-hero-section {
+    min-height: 65vh;
+    padding-top: calc(var(--nav-height) + 1.5rem);
+    padding-bottom: 3rem;
+  }
+
+  .minimal-hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .btn-minimal-primary,
+  .btn-minimal-secondary {
+    width: 100%;
+  }
 }
 
 @keyframes bounce {
