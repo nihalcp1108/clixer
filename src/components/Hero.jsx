@@ -1,77 +1,88 @@
 import React from 'react';
-import { Sparkles, ArrowRight, MessageCircle, CheckCircle2, Droplets, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { COMPANY_INFO } from '../data/products';
 
 export default function Hero({ onExplore }) {
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    if (sectionId === 'catalogue' && onExplore) {
+      onExplore();
+    } else {
+      const targetEl = document.getElementById(sectionId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <section id="hero" className="hero-section-full">
+    <section id="hero" className="b2b-hero-section">
       {/* Background Image Container */}
-      <picture className="hero-picture">
+      <picture className="b2b-hero-picture">
         <source media="(max-width: 768px)" srcSet="/images/branding/hero-poster-bg.png" />
         <img 
           src="/images/branding/hero-widescreen-bg.png" 
-          alt="CLIXER® AISI 304 Channel Drainers & Sanitary Systems" 
-          className="hero-img-full"
+          alt="SACO Trading Company Premium Stainless Steel Solutions" 
+          className="b2b-hero-img"
         />
       </picture>
 
-      {/* Floating Hero Content Overlay Card */}
-      <div className="hero-overlay-content">
+      {/* Dark Subtle Gradient Overlay */}
+      <div className="b2b-hero-overlay" />
+
+      {/* Hero Content Layer */}
+      <div className="b2b-hero-content">
         <div className="container">
-          <div className="hero-card-glass">
-            {/* Tagline Badge */}
-            <div className="hero-badge">
-              <Sparkles size={14} className="sparkle-icon" />
-              <span>AISI 304 Stainless Steel • Architectural Sanitary Systems</span>
-            </div>
+          <div className="b2b-hero-card">
+            {/* Small Eyebrow */}
+            <span className="b2b-hero-eyebrow">
+              PREMIUM STAINLESS STEEL SOLUTIONS
+            </span>
 
             {/* Main Headline */}
-            <h1 className="hero-title">
-              <span className="hero-phrase">Great outlook for your floor.</span>
-              <span className="hero-highlight">Architectural Linear Channel Drainers</span>
+            <h1 className="b2b-hero-heading">
+              ENGINEERED FOR QUALITY.<br />
+              <span className="b2b-heading-accent">BUILT FOR LASTING PERFORMANCE.</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="hero-subtitle">
-              Precision-engineered heavy-duty <strong>AISI 304 Stainless Steel</strong> linear channels, designer floor grates, anti-odor cockroach traps, and tile leveling systems. Exclusively marketed across India by <strong>{COMPANY_INFO.marketedBy}</strong>.
+            {/* Supporting Text */}
+            <p className="b2b-hero-subtitle">
+              SACO Trading Company delivers premium stainless-steel products and architectural solutions designed for durability, precision and modern applications. Exclusively marketing <strong>{COMPANY_INFO.brand}</strong> AISI 304 drainage and tiling hardware across India.
             </p>
 
-            {/* Action Buttons */}
-            <div className="hero-actions">
-              <a href="#catalogue" onClick={onExplore} className="btn btn-hero-primary">
-                Explore Catalogue <ArrowRight size={16} />
-              </a>
+            {/* CTA Buttons */}
+            <div className="b2b-hero-actions">
               <a 
-                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hi,%20I%20am%20interested%20in%20Clixer%20Channel%20Drainers%20(AISI%20304).`} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-hero-whatsapp"
+                href="#catalogue" 
+                onClick={(e) => handleNavClick(e, 'catalogue')} 
+                className="btn btn-hero-primary"
               >
-                <MessageCircle size={16} /> Get WhatsApp Quote
+                <span>EXPLORE OUR PRODUCTS</span>
+                <ArrowRight size={16} />
               </a>
-            </div>
 
-            {/* Key Spec Highlights */}
-            <div className="hero-specs">
-              <div className="hero-spec-item">
-                <ShieldCheck size={15} className="spec-icon" />
-                <span>100% Rust-Proof 304</span>
-              </div>
-              <div className="hero-spec-item">
-                <Droplets size={15} className="spec-icon" />
-                <span>High Evacuation Flow</span>
-              </div>
-              <div className="hero-spec-item">
-                <CheckCircle2 size={15} className="spec-icon" />
-                <span>Anti-Odor Gravity Trap</span>
-              </div>
+              <a 
+                href="#contact" 
+                onClick={(e) => handleNavClick(e, 'contact')} 
+                className="btn btn-hero-outline"
+              >
+                <span>CONTACT US</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <a 
+        href="#who-we-are" 
+        onClick={(e) => handleNavClick(e, 'who-we-are')} 
+        className="b2b-scroll-indicator" 
+        aria-label="Scroll to content"
+      >
+        <span className="scroll-text">DISCOVER MORE</span>
+        <ChevronDown size={20} className="scroll-arrow" />
+      </a>
     </section>
   );
 }
-
-
-

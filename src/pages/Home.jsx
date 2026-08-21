@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import MobileMenu from '../components/MobileMenu';
 import Hero from '../components/Hero';
-import BrandLogos from '../components/BrandLogos';
-import ProductSpecification from '../components/ProductSpecification';
+import WhoWeAre from '../components/WhoWeAre';
+import AboutSection from '../components/AboutSection';
 import ProductGrid from '../components/ProductGrid';
+import QualitySection from '../components/QualitySection';
+import WhyChooseSaco from '../components/WhyChooseSaco';
+import ApplicationsSection from '../components/ApplicationsSection';
+import CertificationStrip from '../components/CertificationStrip';
 import ImageGallery from '../components/ImageGallery';
+import B2bCtaSection from '../components/B2bCtaSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import ProductModal from '../components/ProductModal';
@@ -60,7 +65,6 @@ export default function Home() {
     } else {
       url.searchParams.delete('category');
     }
-    // Remove product param if category changes
     url.searchParams.delete('product');
     window.history.replaceState({}, '', url.toString());
   };
@@ -68,7 +72,7 @@ export default function Home() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'brands', 'specification', 'catalogue', 'gallery', 'contact'];
+      const sections = ['hero', 'who-we-are', 'about', 'catalogue', 'quality', 'applications', 'gallery', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -93,8 +97,8 @@ export default function Home() {
   };
 
   // Compute Dynamic SEO Metadata
-  let pageTitle = SEO_CONFIG.defaultTitle;
-  let pageDescription = SEO_CONFIG.defaultDescription;
+  let pageTitle = "SACO Trading Company | Premium Stainless Steel Solutions";
+  let pageDescription = "SACO Trading Company supplies premium stainless-steel products and architectural solutions designed for quality, durability and modern applications.";
   let canonicalPath = '/';
   let ogImage = SEO_CONFIG.defaultOgImage;
   let ogType = 'website';
@@ -145,28 +149,24 @@ export default function Home() {
         onSelectCategory={handleSelectCategoryFromNav}
       />
 
-      {/* MAIN PAGE FLOW */}
+      {/* MAIN B2B PAGE FLOW */}
       <main>
-        {/* 2. HERO / FRONT PAGE IMAGE SECTION */}
+        {/* 2. HERO SECTION */}
         <Hero onExplore={() => handleSelectCategoryFromNav('all')} />
 
-        {/* 3. BRAND & PARTNERSHIP LOGOS SHOWCASE */}
-        <div id="brands">
-          <BrandLogos />
-        </div>
+        {/* 3. WHO WE ARE & TRUST INTRO */}
+        <WhoWeAre />
 
-        {/* 4. ABOUT & MATERIAL SPECIFICATIONS */}
-        <div id="specification">
-          <ProductSpecification />
-        </div>
+        {/* 4. ABOUT SACO TRADING COMPANY */}
+        <AboutSection />
 
-        {/* 5. SINGLE PRODUCT CATALOGUE WITH LIVE SEARCH & CATEGORY FILTER */}
+        {/* 5. PRODUCTS SECTION & CATEGORY FILTER */}
         <section id="catalogue" className="catalogue-section">
           <div className="container">
             <SectionTitle
-              badge="Complete Sanitary Catalogue"
-              title="Architectural Product Catalogue"
-              description="Explore all AISI 304 stainless steel linear drainers, square floor grates, anti-odor traps, and tile accessories in a single unified view."
+              badge="OUR PRODUCTS"
+              title="QUALITY PRODUCTS FOR MODERN APPLICATIONS"
+              description="Explore AISI 304 stainless steel linear channel drains, square floor grates, anti-odor traps, and tile accessories."
             />
             
             <ProductGrid 
@@ -177,18 +177,31 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6. APPLICATION IMAGE GALLERY */}
+        {/* 6. QUALITY SPOTLIGHT & CERTIFICATIONS */}
+        <QualitySection />
+
+        {/* 7. WHY CHOOSE SACO (6 FEATURE CARDS) */}
+        <WhyChooseSaco />
+
+        {/* 8. APPLICATIONS GRID */}
+        <ApplicationsSection />
+
+        {/* 9. CERTIFICATION & MATERIAL STRIP */}
+        <CertificationStrip />
+
+        {/* 10. INTERACTIVE PRODUCT GALLERY */}
         <div id="gallery">
           <ImageGallery />
         </div>
 
-        {/* 7. CONTACT & SALES SECTION */}
-        <div id="contact">
-          <ContactSection />
-        </div>
+        {/* 11. B2B INQUIRY CTA BANNER */}
+        <B2bCtaSection />
+
+        {/* 12. CONTACT & SALES SECTION */}
+        <ContactSection />
       </main>
 
-      {/* 8. FOOTER */}
+      {/* 13. FOOTER */}
       <Footer onSelectCategory={handleSelectCategoryFromNav} />
 
       {/* PRODUCT DETAILS MODAL */}

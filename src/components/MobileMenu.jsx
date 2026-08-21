@@ -1,12 +1,15 @@
 import React from 'react';
-import { X, Phone, MessageSquare } from 'lucide-react';
+import { X, Phone, MessageSquare, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../data/products';
 
 export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
   const navItems = [
-    { label: 'Home', sectionId: 'hero', catId: null },
+    { label: 'Home', sectionId: 'hero' },
+    { label: 'About Us', sectionId: 'about' },
     { label: 'Products', sectionId: 'catalogue', catId: 'all' },
-    { label: 'Contact', sectionId: 'contact', catId: null },
+    { label: 'Quality Standards', sectionId: 'quality' },
+    { label: 'Applications', sectionId: 'applications' },
+    { label: 'Contact Us', sectionId: 'contact' },
   ];
 
   const handleMobileNavClick = (e, item) => {
@@ -27,9 +30,13 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
       <div className={`mobile-overlay ${isOpen ? 'open' : ''}`} onClick={onClose} />
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         <div className="mobile-menu-header">
-          <img src="/images/branding/clixer-logo.png" alt="CLIXER®" style={{ height: '32px' }} />
-          <button onClick={onClose} aria-label="Close menu">
-            <X size={24} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <img src="/images/branding/saco-logo.png" alt="SACO Trading" style={{ height: '24px' }} />
+            <span style={{ color: 'var(--text-muted)' }}>|</span>
+            <img src="/images/branding/clixer-logo.png" alt="CLIXER®" style={{ height: '20px' }} />
+          </div>
+          <button onClick={onClose} aria-label="Close menu" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+            <X size={24} color="var(--text-main)" />
           </button>
         </div>
 
@@ -48,14 +55,14 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
         </ul>
 
         <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid var(--light-border)' }}>
-          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.75rem', fontWeight: '700' }}>
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.75rem', fontWeight: '700', letterSpacing: '1px' }}>
             SACO TRADING COMPANY
           </p>
-          <a href={`tel:${COMPANY_INFO.phone}`} className="btn btn-primary" style={{ width: '100%', marginBottom: '0.5rem' }}>
-            <Phone size={16} /> Call Customer Care
+          <a href="#contact" onClick={(e) => handleMobileNavClick(e, { sectionId: 'contact' })} className="btn btn-primary" style={{ width: '100%', marginBottom: '0.5rem' }}>
+            <span>ENQUIRE NOW</span> <ArrowRight size={16} />
           </a>
           <a 
-            href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20CLIXER,%20I%20am%20interested%20in%20your%20products`} 
+            href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20SACO%20Trading,%20I%20have%20a%20B2B%20inquiry.`} 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn btn-secondary" 
@@ -68,4 +75,3 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
     </>
   );
 }
-

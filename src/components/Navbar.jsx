@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Phone } from 'lucide-react';
-import { COMPANY_INFO } from '../data/products';
+import { Menu, ArrowRight } from 'lucide-react';
 
 export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCategory }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { label: 'Home', sectionId: 'hero', catId: null },
+    { label: 'Home', sectionId: 'hero' },
+    { label: 'About Us', sectionId: 'about' },
     { label: 'Products', sectionId: 'catalogue', catId: 'all' },
-    { label: 'Contact', sectionId: 'contact', catId: null },
+    { label: 'Quality', sectionId: 'quality' },
+    { label: 'Applications', sectionId: 'applications' },
+    { label: 'Contact', sectionId: 'contact' },
   ];
 
   const handleNavClick = (e, item) => {
@@ -33,11 +35,23 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
 
   return (
     <header className={`navbar ${scrolled ? 'visible scrolled' : ''}`}>
-      <div className="container">
-        <a href="#hero" className="nav-brand">
-          <img src="/images/branding/clixer-logo.png" alt="CLIXER®" className="logo" />
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        {/* Brand Group */}
+        <a href="#hero" className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
+          <img 
+            src="/images/branding/saco-logo.png" 
+            alt="SACO Trading Company" 
+            style={{ height: '32px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
+          />
+          <span style={{ color: 'rgba(255,255,255,0.3)', fontWeight: 300, fontSize: '1.2rem' }}>|</span>
+          <img 
+            src="/images/branding/clixer-logo.png" 
+            alt="CLIXER®" 
+            style={{ height: '26px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
+          />
         </a>
 
+        {/* Desktop Nav Links */}
         <ul className="nav-links">
           {navItems.map((item) => (
             <li key={item.label}>
@@ -52,14 +66,15 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
           ))}
         </ul>
 
+        {/* Right Action CTA */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <a 
-            href={`tel:${COMPANY_INFO.phone}`} 
-            className="btn nav-phone-btn"
-            style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}
+            href="#contact" 
+            onClick={(e) => handleNavClick(e, { sectionId: 'contact' })}
+            className="btn btn-primary nav-enquire-btn"
           >
-            <Phone size={15} />
-            <span>{COMPANY_INFO.phone}</span>
+            <span>ENQUIRE NOW</span>
+            <ArrowRight size={14} />
           </a>
 
           <button 
@@ -67,11 +82,10 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
             onClick={onOpenMobileMenu}
             aria-label="Toggle Navigation Menu"
           >
-            <Menu size={26} />
+            <Menu size={24} color="#ffffff" />
           </button>
         </div>
       </div>
     </header>
   );
 }
-

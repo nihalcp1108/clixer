@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import { Eye, ShieldCheck, Sparkles } from 'lucide-react';
+import { Eye, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export default function ProductCard({ product, onSelect }) {
   const [activeFinishView, setActiveFinishView] = useState('main'); // 'main' or 'colors'
-
-  const getStartingPrice = (priceTable) => {
-    if (!priceTable || priceTable.length === 0) return null;
-    return priceTable[0].satin;
-  };
 
   const finishSwatches = [
     { name: 'Satin', bg: '#cbd5e1', border: '#94a3b8' },
@@ -17,46 +12,44 @@ export default function ProductCard({ product, onSelect }) {
   ];
 
   return (
-    <article className="product-card">
-      <div className="product-card-badge">
-        <span className="badge-304">
-          <ShieldCheck size={13} /> AISI 304 Steel
+    <article className="b2b-product-card">
+      {/* Top Image Frame */}
+      <div className="b2b-card-image-box" onClick={() => onSelect(product)}>
+        <span className="b2b-material-tag">
+          <ShieldCheck size={12} /> {product.material || "AISI 304 Stainless Steel"}
         </span>
-      </div>
-
-      <div className="product-card-image" onClick={() => onSelect(product)}>
+        
         <img 
           src={activeFinishView === 'colors' && product.colorsImage ? product.colorsImage : product.image} 
           alt={product.name} 
-          loading="lazy" 
+          loading="lazy"
+          className="b2b-card-img" 
         />
-        <div className="card-image-hover-overlay">
-          <span className="quick-view-btn">
-            <Eye size={16} /> Quick Inspect
+        
+        <div className="b2b-card-hover">
+          <span className="b2b-quick-btn">
+            <Eye size={15} /> QUICK VIEW
           </span>
         </div>
       </div>
 
-      <div className="product-card-body">
-        <div className="product-card-header-meta">
-          <span className="product-card-model">{product.model}</span>
-          {product.tier && (
-            <span className="product-card-tier">
-              <Sparkles size={11} /> {product.tier}
-            </span>
-          )}
+      {/* Card Content Body */}
+      <div className="b2b-card-body">
+        <div className="b2b-card-meta">
+          <span className="b2b-model-code">{product.model}</span>
+          <span className="b2b-cat-label">{product.categoryLabel}</span>
         </div>
 
-        <h3 className="product-card-title" onClick={() => onSelect(product)}>
+        <h3 className="b2b-card-title" onClick={() => onSelect(product)}>
           {product.name}
         </h3>
         
-        <p className="product-card-desc">{product.tagline || product.description}</p>
+        <p className="b2b-card-desc">{product.tagline || product.description}</p>
 
         {/* Color Finish Selector Swatches */}
         {product.colorsImage ? (
-          <div className="card-swatch-bar">
-            <span className="swatch-title">4 Finishes:</span>
+          <div className="b2b-swatch-bar">
+            <span className="swatch-title">Finishes:</span>
             <div className="swatch-dots">
               {finishSwatches.map((s, i) => (
                 <span 
@@ -69,39 +62,21 @@ export default function ProductCard({ product, onSelect }) {
                 />
               ))}
             </div>
-            {product.colorsImage && (
-              <button 
-                className={`toggle-colors-btn ${activeFinishView === 'colors' ? 'active' : ''}`}
-                onClick={() => setActiveFinishView(activeFinishView === 'colors' ? 'main' : 'colors')}
-              >
-                {activeFinishView === 'colors' ? 'Single View' : 'Show Colors'}
-              </button>
-            )}
           </div>
         ) : null}
 
-        <div className="product-card-specs">
-          {product.dimensions && (
-            <div className="product-spec-row">
-              <span>Dimensions:</span>
-              <strong>{product.dimensions}</strong>
-            </div>
-          )}
-          {getStartingPrice(product.priceTable) && (
-            <div className="product-spec-row price-highlight">
-              <span>Starts at:</span>
-              <strong className="price-val">{getStartingPrice(product.priceTable)}</strong>
-            </div>
-          )}
-        </div>
+        <div className="b2b-card-footer">
+          <div className="b2b-mat-info">
+            <span>Material:</span>
+            <strong>AISI 304 Steel</strong>
+          </div>
 
-        <div className="product-card-actions">
-          <button className="btn btn-primary btn-full-card" onClick={() => onSelect(product)}>
-            <Eye size={16} /> View Full Specs & Pricing
+          <button className="btn btn-primary b2b-view-btn" onClick={() => onSelect(product)}>
+            <span>VIEW PRODUCT</span>
+            <ArrowRight size={14} />
           </button>
         </div>
       </div>
     </article>
   );
 }
-
