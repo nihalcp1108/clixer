@@ -40,13 +40,13 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
           <img 
             src="/images/branding/saco-logo.png" 
             alt="SACO Trading Company" 
-            style={{ height: '32px', objectFit: 'contain' }} 
+            style={{ height: '28px', objectFit: 'contain' }} 
           />
           <span style={{ color: 'var(--text-muted)', fontWeight: 300, fontSize: '1.2rem' }}>|</span>
           <img 
             src="/images/branding/clixer-logo.png" 
             alt="CLIXER®" 
-            style={{ height: '24px', objectFit: 'contain' }} 
+            style={{ height: '28px', objectFit: 'contain' }} 
           />
         </a>
 

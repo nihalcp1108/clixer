@@ -30,9 +30,9 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         <div className="mobile-menu-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <img src="/images/branding/saco-logo.png" alt="SACO Trading" style={{ height: '24px' }} />
+            <img src="/images/branding/saco-logo.png" alt="SACO Trading" style={{ height: '24px', objectFit: 'contain' }} />
             <span style={{ color: 'var(--text-muted)' }}>|</span>
-            <img src="/images/branding/clixer-logo.png" alt="CLIXER®" style={{ height: '20px' }} />
+            <img src="/images/branding/clixer-logo.png" alt="CLIXER®" style={{ height: '24px', objectFit: 'contain' }} />
           </div>
           <button onClick={onClose} aria-label="Close menu" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
             <X size={24} color="var(--text-main)" />

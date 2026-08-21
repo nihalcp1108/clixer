@@ -29,13 +29,13 @@ export default function Footer({ onSelectCategory }) {
               <img 
                 src="/images/branding/saco-logo.png" 
                 alt="SACO Trading Company" 
-                style={{ height: '34px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
+                style={{ height: '28px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
               />
               <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
               <img 
                 src="/images/branding/clixer-logo.png" 
                 alt="CLIXER®" 
-                style={{ height: '24px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
+                style={{ height: '28px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
               />
             </div>
             
