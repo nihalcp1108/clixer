@@ -5,24 +5,24 @@ import { COMPANY_INFO } from '../data/products';
 export default function ProductSpecification() {
   const specs = [
     {
-      icon: <ShieldCheck size={28} />,
-      title: "AISI 304 Stainless Steel",
-      desc: "Constructed from premium AISI 304 austenitic stainless steel with high chromium-nickel ratio for 100% corrosion resistance in continuous wet environments."
+      icon: <ShieldCheck size={26} />,
+      title: "Austenitic AISI 304 Steel",
+      desc: "High chromium-nickel grade stainless steel offering 100% rust prevention in continuous wet bathroom & shower environments."
     },
     {
-      icon: <Droplets size={28} />,
-      title: "High Water Flow Rate",
-      desc: "Optimized channel dimensions and linear slot geometries prevent water pooling and ensure rapid drainage for high-pressure rain showers."
+      icon: <Droplets size={26} />,
+      title: "Rapid Evacuation Flow",
+      desc: "Precision linear slot engineering accelerates water intake to prevent pooling under heavy-flow rain showers."
     },
     {
-      icon: <Sliders size={28} />,
-      title: "4 Architectural Finishes",
-      desc: "Offered in Hairline Satin, PVD Gold, Rose Gold, and Matt Black PVD coating to match luxury bathroom taps and floor tiles."
+      icon: <Sliders size={26} />,
+      title: "4 Luxury Metallic Finishes",
+      desc: "Hairline Satin, PVD Gold, Rose Gold, and Matt Black electro-coatings designed to match architectural tapware."
     },
     {
-      icon: <CheckCircle2 size={28} />,
-      title: "Anti-Odor & Insect Trap",
-      desc: "Internal stainless steel counterweight trap cups block sewer backflow and prevent cockroaches or insects from entering living areas."
+      icon: <CheckCircle2 size={26} />,
+      title: "Anti-Odor & Insect Barrier",
+      desc: "Gravity counterweighted stainless trap door opens with water flow and shuts tight when dry to block cockroaches & sewer gas."
     }
   ];
 
@@ -31,32 +31,32 @@ export default function ProductSpecification() {
       <div className="container">
         <div className="brand-grid">
           <div className="brand-content">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
               <img 
                 src="/images/branding/aisi304-badge.png" 
                 alt="AISI 304 Certified" 
                 style={{ height: '54px', width: 'auto', filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.5))' }}
               />
               <div>
-                <span style={{ color: 'var(--accent-gold)', fontFamily: 'var(--font-heading)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
-                  Material & Engineering Standard
+                <span style={{ color: 'var(--accent-gold)', fontFamily: 'var(--font-heading)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.82rem' }}>
+                  Material & Engineering Excellence
                 </span>
-                <h3 style={{ color: '#fff', fontSize: '1.1rem', margin: 0 }}>Austenitic Stainless Steel</h3>
+                <h3 style={{ color: '#fff', fontSize: '1.15rem', margin: 0, fontWeight: 700 }}>AISI 304 Stainless Steel Standard</h3>
               </div>
             </div>
 
-            <h2>Why Choose CLIXER® AISI 304 Sanitary Systems</h2>
+            <h2 style={{ fontSize: '2.1rem', lineHeight: 1.25 }}>Why Leading Builders Choose CLIXER® Sanitary Systems</h2>
             
-            <p>
-              CLIXER by <strong>{COMPANY_INFO.marketedBy}</strong> sets the industry standard in architectural channel drainers, designer square grates, and professional tile leveling accessories. Every piece undergoes rigorous electrochemical polishing for supreme surface finish.
+            <p style={{ marginTop: '1rem', fontSize: '1rem', lineHeight: 1.7 }}>
+              CLIXER by <strong>{COMPANY_INFO.marketedBy}</strong> defines premium quality in linear channel drainers, designer square floor grates, anti-odor traps, and tile leveling tools. Every product is electro-chemically passivated to ensure lifelong corrosion resistance and sleek aesthetic appeal.
             </p>
 
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
               <span className="badge-304" style={{ background: 'rgba(200,75,96,0.25)', color: '#fff', border: '1px solid var(--primary-light)' }}>
-                <Award size={15} /> Certified AISI 304 Grade
+                <Award size={14} /> Certified AISI 304 Grade
               </span>
               <span className="badge-304" style={{ background: 'rgba(212,175,55,0.25)', color: 'var(--accent-gold)', border: '1px solid var(--accent-gold)' }}>
-                <Layers size={15} /> PVD Surface Coated
+                <Layers size={14} /> PVD Surface Coated
               </span>
             </div>
           </div>

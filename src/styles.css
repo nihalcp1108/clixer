@@ -1055,6 +1055,112 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   BRAND LOGOS TRUST SHOWCASE
+   ========================================================================== */
+
+.brand-logos-section {
+  padding: 4.5rem 0;
+  background: var(--light-surface);
+  border-bottom: 1px solid var(--light-border);
+}
+
+.brand-logos-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.brand-logos-header .sub-badge {
+  display: inline-block;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 0.35rem;
+}
+
+.brand-logos-title {
+  font-size: 1.85rem;
+  color: var(--text-main);
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+.brand-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.logo-showcase-card {
+  background: #ffffff;
+  border: 1px solid var(--light-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.logo-showcase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(200, 75, 96, 0.12);
+  border-color: var(--primary-light);
+}
+
+.logo-img-wrapper {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-logo-img {
+  max-height: 50px;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+.logo-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.logo-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(200, 75, 96, 0.08);
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.logo-brand-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 0.2rem;
+}
+
+.logo-brand-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
    BRAND SECTION
    ========================================================================== */
 

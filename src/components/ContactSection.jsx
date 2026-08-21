@@ -14,11 +14,11 @@ export default function ContactSection() {
           {/* Left Column: Contact Details */}
           <div className="contact-info-col">
             <span style={{ color: 'var(--primary-light)', fontFamily: 'var(--font-heading)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
-              Marketed By {COMPANY_INFO.marketedBy}
+              Exclusive Partner: {COMPANY_INFO.marketedBy}
             </span>
-            <h2>Get In Touch With Us</h2>
+            <h2>Direct Sales & Project Inquiries</h2>
             <p>
-              Inquire about product availability, bulk dealer orders, architectural specifications, or custom length requests directly with our sales team.
+              Inquire about product availability, wholesale dealer pricing, architectural project specs, or custom channel lengths directly with our sales team.
             </p>
 
             <div className="contact-details-list">
