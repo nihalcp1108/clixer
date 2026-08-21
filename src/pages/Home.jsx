@@ -3,11 +3,9 @@ import Navbar from '../components/Navbar';
 import MobileMenu from '../components/MobileMenu';
 import Hero from '../components/Hero';
 import WhoWeAre from '../components/WhoWeAre';
-import AboutSection from '../components/AboutSection';
 import ProductGrid from '../components/ProductGrid';
 import QualitySection from '../components/QualitySection';
 import WhyChooseSaco from '../components/WhyChooseSaco';
-import ApplicationsSection from '../components/ApplicationsSection';
 import CertificationStrip from '../components/CertificationStrip';
 import ImageGallery from '../components/ImageGallery';
 import B2bCtaSection from '../components/B2bCtaSection';
@@ -72,7 +70,7 @@ export default function Home() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'who-we-are', 'catalogue', 'quality', 'applications', 'gallery', 'contact'];
+      const sections = ['hero', 'who-we-are', 'catalogue', 'quality', 'gallery', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -179,9 +177,6 @@ export default function Home() {
 
         {/* 7. WHY CHOOSE SACO (6 FEATURE CARDS) */}
         <WhyChooseSaco />
-
-        {/* 8. APPLICATIONS GRID */}
-        <ApplicationsSection />
 
         {/* 9. CERTIFICATION & MATERIAL STRIP */}
         <CertificationStrip />

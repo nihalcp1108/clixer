@@ -8,7 +8,6 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
     { label: 'About Us', sectionId: 'who-we-are' },
     { label: 'Products', sectionId: 'catalogue', catId: 'all' },
     { label: 'Quality Standards', sectionId: 'quality' },
-    { label: 'Applications', sectionId: 'applications' },
     { label: 'Contact Us', sectionId: 'contact' },
   ];
 

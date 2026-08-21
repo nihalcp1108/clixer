@@ -50,7 +50,6 @@ export default function Footer({ onSelectCategory }) {
             <ul className="footer-links-list">
               <li><a href="#who-we-are" onClick={(e) => handleNavClick(e, 'who-we-are')}>About Us</a></li>
               <li><a href="#quality" onClick={(e) => handleNavClick(e, 'quality')}>Quality Standards</a></li>
-              <li><a href="#applications" onClick={(e) => handleNavClick(e, 'applications')}>Applications</a></li>
               <li><a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact Us</a></li>
             </ul>
           </div>
