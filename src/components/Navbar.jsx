@@ -40,13 +40,13 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
           <img 
             src="/images/branding/saco-logo.png" 
             alt="SACO Trading Company" 
-            style={{ height: '28px', objectFit: 'contain' }} 
+            style={{ height: '28px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
           />
-          <span style={{ color: 'var(--text-muted)', fontWeight: 300, fontSize: '1.2rem' }}>|</span>
+          <span style={{ color: 'rgba(255,255,255,0.4)', fontWeight: 300, fontSize: '1.2rem' }}>|</span>
           <img 
             src="/images/branding/clixer-logo.png" 
             alt="CLIXER®" 
-            style={{ height: '28px', objectFit: 'contain' }} 
+            style={{ height: '28px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} 
           />
         </a>
 
@@ -81,7 +81,7 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
             onClick={onOpenMobileMenu}
             aria-label="Toggle Navigation Menu"
           >
-            <Menu size={24} color="var(--text-main)" />
+            <Menu size={24} color="#ffffff" />
           </button>
         </div>
       </div>
