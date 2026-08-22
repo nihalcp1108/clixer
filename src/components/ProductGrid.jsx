@@ -54,8 +54,8 @@ export default function ProductGrid({ onSelectProduct, activeCategory, onCategor
       {/* Grid List */}
       {filteredProducts.length > 0 ? (
         <div className="product-grid-container">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} onSelect={onSelectProduct} />
+          {filteredProducts.map((product, index) => (
+            <ProductCard key={product.id} product={product} index={index} onSelect={onSelectProduct} />
           ))}
         </div>
       ) : (

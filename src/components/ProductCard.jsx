@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, ShieldCheck, ArrowRight } from 'lucide-react';
 
-export default function ProductCard({ product, onSelect }) {
+export default function ProductCard({ product, index = 0, onSelect }) {
   const [activeFinishView, setActiveFinishView] = useState('main'); // 'main' or 'colors'
 
   const finishSwatches = [
@@ -11,12 +11,14 @@ export default function ProductCard({ product, onSelect }) {
     { name: 'Matt Black', bg: '#18181b', border: '#3f3f46' },
   ];
 
+  const styleDelay = { '--card-index': index % 4 };
+
   return (
-    <article className="b2b-product-card">
+    <article className="b2b-product-card reveal-card" style={styleDelay}>
       {/* Top Image Frame */}
       <div className="b2b-card-image-box" onClick={() => onSelect(product)}>
         <span className="b2b-material-tag">
-          <ShieldCheck size={12} /> {product.material || "AISI 304 Stainless Steel"}
+          <ShieldCheck size={11} /> {product.material ? "AISI 304" : "AISI 304"}
         </span>
         
         <img 
@@ -28,7 +30,7 @@ export default function ProductCard({ product, onSelect }) {
         
         <div className="b2b-card-hover">
           <span className="b2b-quick-btn">
-            <Eye size={15} /> QUICK VIEW
+            <Eye size={14} /> QUICK VIEW
           </span>
         </div>
       </div>
@@ -73,7 +75,7 @@ export default function ProductCard({ product, onSelect }) {
 
           <button className="btn btn-primary b2b-view-btn" onClick={() => onSelect(product)}>
             <span>VIEW PRODUCT</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={13} />
           </button>
         </div>
       </div>

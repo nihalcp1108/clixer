@@ -86,6 +86,31 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Intersection Observer for Smooth Scroll Reveal & Stagger Animations
+  useEffect(() => {
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05,
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const elements = document.querySelectorAll('.reveal-section, .reveal-card');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, [activeCategory, selectedProduct]);
+
   const handleSelectCategoryFromNav = (catId) => {
     handleCategoryChange(catId);
     const catalogueEl = document.getElementById('catalogue');
@@ -153,10 +178,12 @@ export default function Home() {
         <Hero onExplore={() => handleSelectCategoryFromNav('all')} />
 
         {/* 3. WHO WE ARE & TRUST INTRO */}
-        <WhoWeAre />
+        <div className="reveal-section">
+          <WhoWeAre />
+        </div>
 
         {/* 4. PRODUCTS SECTION & CATEGORY FILTER */}
-        <section id="catalogue" className="catalogue-section">
+        <section id="catalogue" className="catalogue-section reveal-section">
           <div className="container">
             <SectionTitle
               badge="OUR PRODUCTS"
@@ -172,28 +199,36 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6. QUALITY SPOTLIGHT & CERTIFICATIONS */}
-        <QualitySection />
+        {/* 5. QUALITY SPOTLIGHT & CERTIFICATIONS */}
+        <div className="reveal-section">
+          <QualitySection />
+        </div>
 
-        {/* 7. WHY CHOOSE SACO (6 FEATURE CARDS) */}
-        <WhyChooseSaco />
+        {/* 6. WHY CHOOSE SACO (6 FEATURE CARDS) */}
+        <div className="reveal-section">
+          <WhyChooseSaco />
+        </div>
 
-        {/* 9. CERTIFICATION & MATERIAL STRIP */}
+        {/* 7. CERTIFICATION & MATERIAL STRIP */}
         <CertificationStrip />
 
-        {/* 10. INTERACTIVE PRODUCT GALLERY */}
-        <div id="gallery">
+        {/* 8. INTERACTIVE PRODUCT GALLERY */}
+        <div id="gallery" className="reveal-section">
           <ImageGallery />
         </div>
 
-        {/* 11. B2B INQUIRY CTA BANNER */}
-        <B2bCtaSection />
+        {/* 9. B2B INQUIRY CTA BANNER */}
+        <div className="reveal-section">
+          <B2bCtaSection />
+        </div>
 
-        {/* 12. CONTACT & SALES SECTION */}
-        <ContactSection />
+        {/* 10. CONTACT & SALES SECTION */}
+        <div className="reveal-section">
+          <ContactSection />
+        </div>
       </main>
 
-      {/* 13. FOOTER */}
+      {/* 11. FOOTER */}
       <Footer onSelectCategory={handleSelectCategoryFromNav} />
 
       {/* PRODUCT DETAILS MODAL */}
