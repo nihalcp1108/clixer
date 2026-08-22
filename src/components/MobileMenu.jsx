@@ -17,7 +17,7 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
 
   const navItems = [
     { label: 'Home', sectionId: 'hero' },
-    { label: 'About Us', sectionId: 'who-we-are' },
+    { label: 'About Us', sectionId: 'why-saco' },
     { label: 'Products', sectionId: 'catalogue', catId: 'all' },
     { label: 'Quality Standards', sectionId: 'quality' },
     { label: 'Contact Us', sectionId: 'contact' },

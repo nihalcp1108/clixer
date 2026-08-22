@@ -14,7 +14,7 @@ export default function Navbar({ onOpenMobileMenu, activeSection, onSelectCatego
 
   const navItems = [
     { label: 'Home', sectionId: 'hero' },
-    { label: 'About Us', sectionId: 'who-we-are' },
+    { label: 'About Us', sectionId: 'why-saco' },
     { label: 'Products', sectionId: 'catalogue', catId: 'all' },
     { label: 'Quality', sectionId: 'quality' },
     { label: 'Contact', sectionId: 'contact' },
