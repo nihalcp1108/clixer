@@ -3351,122 +3351,250 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES & ACCESSIBILITY
+   COMPLETE MOBILE RESPONSIVE MEDIA QUERIES & ALIGNMENTS
    ========================================================================== */
 
+/* Tablet & Medium Screens (<=1024px) */
 @media (max-width: 1024px) {
-  .b2b-about-grid, .b2b-quality-grid, .b2b-contact-grid {
+  .b2b-about-grid, 
+  .b2b-quality-grid, 
+  .b2b-contact-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
-  .trust-grid, .why-saco-grid, .applications-grid {
+  .trust-grid, 
+  .why-saco-grid, 
+  .applications-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
   .b2b-footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .trust-grid, .why-saco-grid, .applications-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .b2b-footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row-2 {
-    grid-template-columns: 1fr;
-  }
-
-  .cert-strip-flex {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cert-divider {
-    display: none;
-  }
-}
-
-@media (max-width: 1024px) {
-  .poster-main-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .brand-logos-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .product-grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .brand-grid, .cockroach-grid, .leveling-hero-card, .contact-grid {
-    grid-template-columns: 1fr;
     gap: 2.5rem;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
+/* Tablet Portrait & Mobile Screens (<=768px) */
 @media (max-width: 768px) {
   :root {
-    --nav-height: 70px;
+    --nav-height: 64px;
+  }
+
+  .container {
+    padding: 0 1rem;
   }
 
   .nav-links {
     display: none;
   }
 
-  .hero-section-full,
-  .hero,
-  .poster-hero {
-    min-height: 100vh;
-    height: 100vh;
-    min-height: 100svh;
-    height: 100svh;
-    padding: 0;
-    margin: 0;
-  }
-
-  .poster-main-layout {
-    max-width: 100%;
+  .nav-toggle {
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
-  .hero-card-glass {
-    padding: 1.5rem 1.25rem;
-    max-width: 100%;
-    background: rgba(15, 3, 7, 0.82);
+  .nav-enquire-btn span {
+    display: none;
   }
 
-  .hero-highlight {
+  .nav-enquire-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  /* Fullscreen Mobile Viewport Hero */
+  .fullscreen-hero-section {
+    min-height: 100vh;
+    min-height: 100svh;
+    height: 100vh;
+    height: 100svh;
+  }
+
+  .fullscreen-hero-img {
+    object-position: center top;
+  }
+
+  .fullscreen-hero-content {
+    padding-top: calc(var(--nav-height) + 0.5rem);
+  }
+
+  .fullscreen-hero-card {
+    padding: 0 0.25rem;
+    gap: 0.85rem;
+    text-align: center;
+  }
+
+  .hero-brand-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+  }
+
+  .fullscreen-hero-heading {
+    font-size: clamp(1.5rem, 5.5vw, 2.25rem);
+    line-height: 1.25;
+  }
+
+  .fullscreen-hero-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    max-width: 92%;
+    margin: 0 auto;
+  }
+
+  .fullscreen-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+    margin-top: 0.25rem;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .fullscreen-scroll-indicator {
+    bottom: 1rem;
+  }
+
+  .scroll-label {
+    font-size: 0.65rem;
+  }
+
+  /* Mobile Section Spacing & Headings */
+  .who-we-are-section,
+  .b2b-about-section,
+  .catalogue-section,
+  .b2b-quality-section,
+  .why-saco-section,
+  .applications-section,
+  .b2b-cta-section,
+  .b2b-contact-section {
+    padding: 3.5rem 0;
+  }
+
+  .section-title-large {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .who-we-are-header,
+  .why-saco-header,
+  .applications-header,
+  .b2b-contact-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .trust-grid, 
+  .why-saco-grid, 
+  .applications-grid,
+  .product-grid-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .trust-card,
+  .why-card {
+    padding: 1.25rem 1.5rem;
+  }
+
+  /* Product Cards on Mobile */
+  .b2b-card-image-box {
+    height: 190px;
+    padding: 1rem;
+  }
+
+  .b2b-card-img {
+    max-height: 145px;
+  }
+
+  .b2b-card-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .b2b-view-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Quality Spotlight Section */
+  .b2b-quality-title {
     font-size: 1.75rem;
   }
 
-  .btn-hero-primary, .btn-hero-whatsapp {
+  .b2b-badge-showcase-frame {
+    padding: 2rem 1rem;
+  }
+
+  .b2b-large-badge-img {
+    max-height: 130px;
+  }
+
+  /* Form & Contact Inputs */
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .b2b-contact-info,
+  .b2b-contact-form-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .form-submit-btn {
     width: 100%;
     justify-content: center;
   }
 
-  .poster-content-card {
-    padding: 1.5rem 1.25rem;
-    width: 100%;
-    background: rgba(18, 5, 10, 0.75);
+  /* Mobile Footer */
+  .b2b-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 0 2rem 0;
   }
 
-  .nav-toggle {
-    display: block;
+  .b2b-footer-bottom {
+    flex-direction: column;
+    gap: 0.85rem;
+    text-align: center;
   }
 
+  /* Mobile Modal Dialog */
+  .modal-container {
+    padding: 1.5rem 1rem;
+    max-height: 92vh;
+    max-height: 92svh;
+    border-radius: 12px;
+  }
+
+  .modal-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .modal-close-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Mobile Screens Standard (<=480px) */
+@media (max-width: 480px) {
   .category-pills {
     display: flex;
     overflow-x: auto;
@@ -3476,7 +3604,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 
   .category-pills::-webkit-scrollbar {
@@ -3486,44 +3613,42 @@ h1, h2, h3, h4, h5, h6 {
   .category-btn {
     white-space: nowrap;
     flex-shrink: 0;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.8rem;
   }
 
-  .product-grid-container {
-    grid-template-columns: 1fr;
-  }
-
-  .brand-logos-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .leveling-components-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .modal-content-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-bottom {
+  .b2b-cta-buttons {
     flex-direction: column;
-    gap: 1rem;
-    text-align: center;
+    width: 100%;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-outline {
+    width: 100%;
   }
 }
 
-@media (max-width: 480px) {
-  .brand-logos-grid {
-    grid-template-columns: 1fr;
+/* Extra Small Mobile Screens (<=360px) */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.75rem;
   }
 
-  .category-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.82rem;
+  .section-title-large {
+    font-size: 1.45rem;
+  }
+
+  .fullscreen-hero-heading {
+    font-size: 1.4rem;
+  }
+
+  .b2b-card-image-box {
+    height: 170px;
+  }
+
+  .btn {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.8rem;
   }
 }
 

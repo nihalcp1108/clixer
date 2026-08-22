@@ -1,8 +1,20 @@
-import React from 'react';
-import { X, Phone, MessageSquare, ArrowRight } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { X, MessageSquare, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../data/products';
 
 export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
+  // Prevent body scrolling when mobile menu drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const navItems = [
     { label: 'Home', sectionId: 'hero' },
     { label: 'About Us', sectionId: 'who-we-are' },
@@ -30,11 +42,11 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory }) {
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         <div className="mobile-menu-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <img src="/images/branding/saco-logo.png" alt="SACO Trading" style={{ height: '24px', objectFit: 'contain' }} />
+            <img src="/images/branding/saco-logo.png" alt="SACO Trading" style={{ height: '22px', objectFit: 'contain' }} />
             <span style={{ color: 'var(--text-muted)' }}>|</span>
-            <img src="/images/branding/clixer-logo.png" alt="CLIXER®" style={{ height: '24px', objectFit: 'contain' }} />
+            <img src="/images/branding/clixer-logo.png" alt="CLIXER®" style={{ height: '22px', objectFit: 'contain' }} />
           </div>
-          <button onClick={onClose} aria-label="Close menu" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+          <button onClick={onClose} aria-label="Close menu" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.25rem' }}>
             <X size={24} color="var(--text-main)" />
           </button>
         </div>
