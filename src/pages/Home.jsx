@@ -3,9 +3,9 @@ import Navbar from '../components/Navbar';
 import MobileMenu from '../components/MobileMenu';
 import Hero from '../components/Hero';
 import WhoWeAre from '../components/WhoWeAre';
+import WhyChooseSaco from '../components/WhyChooseSaco';
 import ProductGrid from '../components/ProductGrid';
 import QualitySection from '../components/QualitySection';
-import WhyChooseSaco from '../components/WhyChooseSaco';
 import CertificationStrip from '../components/CertificationStrip';
 import ImageGallery from '../components/ImageGallery';
 import B2bCtaSection from '../components/B2bCtaSection';
@@ -70,7 +70,7 @@ export default function Home() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'who-we-are', 'catalogue', 'quality', 'gallery', 'contact'];
+      const sections = ['hero', 'who-we-are', 'why-saco', 'catalogue', 'quality', 'gallery', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -177,12 +177,17 @@ export default function Home() {
         {/* 2. HERO SECTION */}
         <Hero onExplore={() => handleSelectCategoryFromNav('all')} />
 
-        {/* 3. WHO WE ARE & TRUST INTRO */}
+        {/* 3. WHO WE ARE & TRUST INTRO (UNDER HERO) */}
         <div className="reveal-section">
           <WhoWeAre />
         </div>
 
-        {/* 4. PRODUCTS SECTION & CATEGORY FILTER */}
+        {/* 4. WHY CHOOSE SACO FEATURE SLIDER (UNDER HERO & WHO WE ARE) */}
+        <div id="why-saco" className="reveal-section">
+          <WhyChooseSaco />
+        </div>
+
+        {/* 5. PRODUCTS SECTION & CATEGORY FILTER */}
         <section id="catalogue" className="catalogue-section reveal-section">
           <div className="container">
             <SectionTitle
@@ -199,14 +204,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 5. QUALITY SPOTLIGHT & CERTIFICATIONS */}
+        {/* 6. QUALITY SPOTLIGHT & CERTIFICATIONS */}
         <div className="reveal-section">
           <QualitySection />
-        </div>
-
-        {/* 6. WHY CHOOSE SACO (6 FEATURE CARDS) */}
-        <div className="reveal-section">
-          <WhyChooseSaco />
         </div>
 
         {/* 7. CERTIFICATION & MATERIAL STRIP */}
