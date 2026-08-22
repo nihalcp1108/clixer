@@ -177,12 +177,7 @@ export default function Home() {
         {/* 2. HERO SECTION */}
         <Hero onExplore={() => handleSelectCategoryFromNav('all')} />
 
-        {/* 3. WHO WE ARE & TRUST INTRO (UNDER HERO) */}
-        <div className="reveal-section">
-          <WhoWeAre />
-        </div>
-
-        {/* 4. WHY CHOOSE SACO FEATURE SLIDER (UNDER HERO & WHO WE ARE) */}
+        {/* 3. WHY CHOOSE SACO 9-FEATURE SLIDER (01-09, UNDER HERO) */}
         <div id="why-saco" className="reveal-section">
           <WhyChooseSaco />
         </div>

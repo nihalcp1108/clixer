@@ -2635,18 +2635,25 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
 }
 
-.why-desktop-pair-grid {
+.why-desktop-trio-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;
   width: 100%;
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  .why-desktop-pair-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 900px) {
+  .why-desktop-trio-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-desktop-trio-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
