@@ -3505,6 +3505,15 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 
+  .nav-logo-saco,
+  .nav-logo-divider {
+    display: none !important;
+  }
+
+  .nav-logo-clixer {
+    height: 26px !important;
+  }
+
   .nav-toggle {
     display: flex;
     align-items: center;
