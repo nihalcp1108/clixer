@@ -1937,14 +1937,18 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     align-items: flex-end;
     background: rgba(15, 23, 42, 0.82);
+    overflow-x: hidden;
   }
 
   .modal-container {
+    width: 100%;
     max-width: 100%;
     max-height: 88vh;
     border-radius: 24px 24px 0 0;
     box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35);
     animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   @keyframes modalSlideUp {
@@ -1969,11 +1973,15 @@ h1, h2, h3, h4, h5, h6 {
 
   .modal-content-grid {
     grid-template-columns: 1fr !important;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .modal-image-col {
-    padding: 1.75rem 1.25rem 1rem 1.25rem;
+    padding: 1.75rem 1rem 1rem 1rem;
     border-bottom: 1px solid var(--light-border);
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .modal-image-col img.main-img {
@@ -1981,8 +1989,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .modal-info-col {
-    padding: 1.25rem 1.25rem 1.75rem 1.25rem;
+    padding: 1.25rem 1rem 1.75rem 1rem;
     gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .modal-header-info h2 {
@@ -1991,22 +2001,29 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .modal-table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    width: 100%;
     border-radius: var(--radius-sm);
     border: 1px solid var(--light-border);
     margin-top: 0.75rem;
+    box-sizing: border-box;
   }
 
   .price-table {
-    min-width: 380px;
-    font-size: 0.78rem;
+    width: 100%;
+    min-width: 0;
+    font-size: 0.75rem;
+    table-layout: auto;
   }
 
   .price-table th, 
   .price-table td {
-    padding: 0.5rem 0.6rem;
-    white-space: nowrap;
+    padding: 0.45rem 0.35rem;
+    text-align: center;
+  }
+
+  .price-table td.size-cell {
+    font-size: 0.72rem;
   }
 
   .modal-actions-group {
@@ -2018,12 +2035,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1rem;
     border-top: 1px solid var(--light-border);
     z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .modal-wa-btn,
   .modal-call-btn {
-    font-size: 0.85rem;
-    padding: 0.75rem 0.85rem;
+    font-size: 0.82rem;
+    padding: 0.75rem 0.6rem;
   }
 }
 

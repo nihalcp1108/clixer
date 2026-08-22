@@ -102,7 +102,7 @@ export default function ProductModal({ product, onClose }) {
                     <tr>
                       <th>Size</th>
                       <th>Satin</th>
-                      <th>Gold / R Gold</th>
+                      <th>Gold</th>
                       <th>Black</th>
                     </tr>
                   </thead>
