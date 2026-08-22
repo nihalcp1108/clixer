@@ -39,14 +39,15 @@ export default function WhoWeAre() {
 
         {/* 3 Numbered Trust Indicators */}
         <div className="trust-grid">
-          {trustIndicators.map((item) => (
-            <div key={item.num} className="trust-card">
-              <div className="trust-card-header">
-                <span className="trust-num">{item.num}</span>
+          {trustIndicators.map((item, idx) => (
+            <div key={item.num} className="trust-card luxury-trust-card" style={{ '--card-idx': idx }}>
+              <div className="trust-card-top">
+                <span className="trust-num-glow">{item.num}</span>
                 <div className="trust-icon-box">{item.icon}</div>
               </div>
               <h3 className="trust-title">{item.title}</h3>
               <p className="trust-desc">{item.desc}</p>
+              <div className="trust-card-accent-bar" />
             </div>
           ))}
         </div>
