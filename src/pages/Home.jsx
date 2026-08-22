@@ -5,9 +5,9 @@ import Hero from '../components/Hero';
 import ProductGrid from '../components/ProductGrid';
 import CertificationStrip from '../components/CertificationStrip';
 import WhyChooseSaco from '../components/WhyChooseSaco';
+import B2bCtaSection from '../components/B2bCtaSection';
 import ImageGallery from '../components/ImageGallery';
 import QualitySection from '../components/QualitySection';
-import B2bCtaSection from '../components/B2bCtaSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import ProductModal from '../components/ProductModal';
@@ -201,19 +201,19 @@ export default function Home() {
           <WhyChooseSaco />
         </div>
 
-        {/* 6. INTERACTIVE PRODUCT GALLERY (PRODUCT SHOWCASE) */}
+        {/* 6. B2B INQUIRY CTA BANNER (RIGHT UNDER WHY CHOOSE SACO?) */}
+        <div className="reveal-section">
+          <B2bCtaSection />
+        </div>
+
+        {/* 7. INTERACTIVE PRODUCT GALLERY (PRODUCT SHOWCASE) */}
         <div id="gallery" className="reveal-section">
           <ImageGallery />
         </div>
 
-        {/* 7. QUALITY SPOTLIGHT & CERTIFICATIONS (RIGHT UNDER PRODUCT SHOWCASE) */}
+        {/* 8. QUALITY SPOTLIGHT & CERTIFICATIONS (RIGHT UNDER PRODUCT SHOWCASE) */}
         <div id="quality" className="reveal-section">
           <QualitySection />
-        </div>
-
-        {/* 8. B2B INQUIRY CTA BANNER */}
-        <div className="reveal-section">
-          <B2bCtaSection />
         </div>
 
         {/* 9. CONTACT & SALES SECTION */}
