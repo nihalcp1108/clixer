@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import MobileMenu from '../components/MobileMenu';
 import Hero from '../components/Hero';
-import WhoWeAre from '../components/WhoWeAre';
 import WhyChooseSaco from '../components/WhyChooseSaco';
 import ProductGrid from '../components/ProductGrid';
-import QualitySection from '../components/QualitySection';
 import CertificationStrip from '../components/CertificationStrip';
+import QualitySection from '../components/QualitySection';
 import ImageGallery from '../components/ImageGallery';
 import B2bCtaSection from '../components/B2bCtaSection';
 import ContactSection from '../components/ContactSection';
@@ -70,7 +69,7 @@ export default function Home() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'who-we-are', 'why-saco', 'catalogue', 'quality', 'gallery', 'contact'];
+      const sections = ['hero', 'why-saco', 'catalogue', 'quality', 'gallery', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -177,12 +176,12 @@ export default function Home() {
         {/* 2. HERO SECTION */}
         <Hero onExplore={() => handleSelectCategoryFromNav('all')} />
 
-        {/* 3. WHY CHOOSE SACO 9-FEATURE SLIDER (01-09, UNDER HERO) */}
+        {/* 3. WHY CHOOSE SACO 9-FEATURE SLIDER (UNDER HERO) */}
         <div id="why-saco" className="reveal-section">
           <WhyChooseSaco />
         </div>
 
-        {/* 5. PRODUCTS SECTION & CATEGORY FILTER */}
+        {/* 4. PRODUCTS SECTION & CATEGORY FILTER */}
         <section id="catalogue" className="catalogue-section reveal-section">
           <div className="container">
             <SectionTitle
@@ -199,31 +198,31 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 5. AUTO-SCROLLING MARQUEE TICKER BANNER (RIGHT UNDER PRODUCTS SHOWING) */}
+        <CertificationStrip />
+
         {/* 6. QUALITY SPOTLIGHT & CERTIFICATIONS */}
         <div className="reveal-section">
           <QualitySection />
         </div>
 
-        {/* 7. CERTIFICATION & MATERIAL STRIP */}
-        <CertificationStrip />
-
-        {/* 8. INTERACTIVE PRODUCT GALLERY */}
+        {/* 7. INTERACTIVE PRODUCT GALLERY */}
         <div id="gallery" className="reveal-section">
           <ImageGallery />
         </div>
 
-        {/* 9. B2B INQUIRY CTA BANNER */}
+        {/* 8. B2B INQUIRY CTA BANNER */}
         <div className="reveal-section">
           <B2bCtaSection />
         </div>
 
-        {/* 10. CONTACT & SALES SECTION */}
+        {/* 9. CONTACT & SALES SECTION */}
         <div className="reveal-section">
           <ContactSection />
         </div>
       </main>
 
-      {/* 11. FOOTER */}
+      {/* 10. FOOTER */}
       <Footer onSelectCategory={handleSelectCategoryFromNav} />
 
       {/* PRODUCT DETAILS MODAL */}
