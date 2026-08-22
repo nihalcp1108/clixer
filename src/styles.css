@@ -58,11 +58,15 @@
 
 html,
 body,
-#root {
+#root,
+.app-layout {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100%;
   min-height: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 html {
@@ -78,6 +82,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 a {
@@ -101,8 +106,34 @@ img {
 .container {
   width: 100%;
   max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.scroll-to-top:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
 }
 
 /* Typography */
