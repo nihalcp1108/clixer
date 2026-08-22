@@ -10,20 +10,21 @@ export default function CertificationStrip() {
     { title: "Reliable Performance", icon: <CheckCircle2 size={18} /> }
   ];
 
+  // Quadruple items to ensure seamless infinite loop animation without empty gaps
+  const marqueeItems = [...items, ...items, ...items, ...items];
+
   return (
     <div className="cert-strip-banner">
-      <div className="container">
-        <div className="cert-strip-flex">
-          {items.map((item, index) => (
-            <React.Fragment key={index}>
-              <div className="cert-strip-item">
-                <span className="cert-icon">{item.icon}</span>
-                <span className="cert-text">{item.title}</span>
-              </div>
-              {index < items.length - 1 && <span className="cert-divider">•</span>}
-            </React.Fragment>
-          ))}
-        </div>
+      <div className="cert-marquee-track">
+        {marqueeItems.map((item, index) => (
+          <React.Fragment key={index}>
+            <div className="cert-strip-item">
+              <span className="cert-icon">{item.icon}</span>
+              <span className="cert-text">{item.title}</span>
+            </div>
+            <span className="cert-divider">•</span>
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );
