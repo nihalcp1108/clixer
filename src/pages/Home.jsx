@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import MobileMenu from '../components/MobileMenu';
 import Hero from '../components/Hero';
-import WhyChooseSaco from '../components/WhyChooseSaco';
 import ProductGrid from '../components/ProductGrid';
 import CertificationStrip from '../components/CertificationStrip';
-import QualitySection from '../components/QualitySection';
+import WhyChooseSaco from '../components/WhyChooseSaco';
 import ImageGallery from '../components/ImageGallery';
+import QualitySection from '../components/QualitySection';
 import B2bCtaSection from '../components/B2bCtaSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -69,7 +69,7 @@ export default function Home() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'why-saco', 'catalogue', 'gallery', 'quality', 'contact'];
+      const sections = ['hero', 'catalogue', 'why-saco', 'gallery', 'quality', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -176,12 +176,7 @@ export default function Home() {
         {/* 2. HERO SECTION */}
         <Hero onExplore={() => handleSelectCategoryFromNav('all')} />
 
-        {/* 3. WHY CHOOSE SACO 9-FEATURE SLIDER (UNDER HERO) */}
-        <div id="why-saco" className="reveal-section">
-          <WhyChooseSaco />
-        </div>
-
-        {/* 4. PRODUCTS SECTION & CATEGORY FILTER */}
+        {/* 3. PRODUCTS SECTION & CATEGORY FILTER */}
         <section id="catalogue" className="catalogue-section reveal-section">
           <div className="container">
             <SectionTitle
@@ -198,15 +193,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 5. AUTO-SCROLLING MARQUEE TICKER BANNER (RIGHT UNDER PRODUCTS SHOWING) */}
+        {/* 4. AUTO-SCROLLING MARQUEE TICKER BANNER (RIGHT UNDER PRODUCTS SHOWING) */}
         <CertificationStrip />
+
+        {/* 5. WHY CHOOSE SACO 9-FEATURE SLIDER (RIGHT UNDER CERTIFICATION MARQUEE STRIP) */}
+        <div id="why-saco" className="reveal-section">
+          <WhyChooseSaco />
+        </div>
 
         {/* 6. INTERACTIVE PRODUCT GALLERY (PRODUCT SHOWCASE) */}
         <div id="gallery" className="reveal-section">
           <ImageGallery />
         </div>
 
-        {/* 7. QUALITY SPOTLIGHT & CERTIFICATIONS (RIGHT UNDER PRODUCT SHOWCASE / GALLERY) */}
+        {/* 7. QUALITY SPOTLIGHT & CERTIFICATIONS (RIGHT UNDER PRODUCT SHOWCASE) */}
         <div id="quality" className="reveal-section">
           <QualitySection />
         </div>
