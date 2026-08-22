@@ -1873,6 +1873,126 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0.2rem;
 }
 
+/* Modal Category Badge & Size Bar */
+.badge-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  background: var(--light-card);
+  border: 1px solid var(--light-border);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.b2b-size-bar {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.b2b-size-bar .size-label {
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.b2b-size-bar .size-values {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.b2b-price-glow {
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* Modal Calculated Dynamic Price Box */
+.modal-price-box {
+  background: linear-gradient(135deg, rgba(101, 15, 22, 0.04) 0%, rgba(101, 15, 22, 0.08) 100%);
+  border: 1px solid rgba(101, 15, 22, 0.18);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.modal-price-box .price-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-price-box .dynamic-price-value {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.modal-price-box .price-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Modal Interactive Variant Selectors */
+.modal-variant-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.variant-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.variant-options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.variant-btn {
+  background: #ffffff;
+  border: 1px solid var(--light-border);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.variant-btn:hover {
+  border-color: var(--primary-light);
+  background: var(--light-card);
+}
+
+.variant-btn.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(101, 15, 22, 0.25);
+}
+
 /* Price & Specs Tables inside Modal */
 .modal-table-wrapper {
   margin-top: 1rem;

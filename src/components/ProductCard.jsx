@@ -5,10 +5,9 @@ export default function ProductCard({ product, index = 0, onSelect }) {
   const [activeFinishView, setActiveFinishView] = useState('main'); // 'main' or 'colors'
 
   const finishSwatches = [
-    { name: 'Satin', bg: '#cbd5e1', border: '#94a3b8' },
-    { name: 'PVD Gold', bg: '#d4af37', border: '#fef08a' },
-    { name: 'Rose Gold', bg: '#b87333', border: '#e09f67' },
-    { name: 'Matt Black', bg: '#18181b', border: '#3f3f46' },
+    { name: 'SATIN', bg: '#cbd5e1', border: '#94a3b8' },
+    { name: 'GOLD / R GOLD', bg: '#d4af37', border: '#fef08a' },
+    { name: 'BLACK', bg: '#18181b', border: '#3f3f46' },
   ];
 
   const styleDelay = { '--card-index': index % 4 };
@@ -18,12 +17,12 @@ export default function ProductCard({ product, index = 0, onSelect }) {
       {/* Top Image Frame */}
       <div className="b2b-card-image-box" onClick={() => onSelect(product)}>
         <span className="b2b-material-tag">
-          <ShieldCheck size={11} /> {product.material ? "AISI 304" : "AISI 304"}
+          <ShieldCheck size={11} /> AISI 304
         </span>
         
         <img 
           src={activeFinishView === 'colors' && product.colorsImage ? product.colorsImage : product.image} 
-          alt={product.name} 
+          alt={`Clixer ${product.model} ${product.categoryLabel}`} 
           loading="lazy"
           className="b2b-card-img" 
         />
@@ -46,7 +45,13 @@ export default function ProductCard({ product, index = 0, onSelect }) {
           {product.name}
         </h3>
         
-        <p className="b2b-card-desc">{product.tagline || product.description}</p>
+        {/* Available Sizes Bar */}
+        {product.sizeShort && (
+          <div className="b2b-size-bar">
+            <span className="size-label">Available Sizes:</span>
+            <span className="size-values">{product.sizeShort}</span>
+          </div>
+        )}
 
         {/* Color Finish Selector Swatches */}
         {product.colorsImage ? (
@@ -69,8 +74,10 @@ export default function ProductCard({ product, index = 0, onSelect }) {
 
         <div className="b2b-card-footer">
           <div className="b2b-mat-info">
-            <span>Material:</span>
-            <strong>AISI 304 Steel</strong>
+            <span>Price:</span>
+            <strong className="b2b-price-glow">
+              {product.startingPrice ? (product.startingPrice.startsWith('₹') ? `From ${product.startingPrice}` : product.startingPrice) : 'On Request'}
+            </strong>
           </div>
 
           <button className="btn btn-primary b2b-view-btn" onClick={() => onSelect(product)}>

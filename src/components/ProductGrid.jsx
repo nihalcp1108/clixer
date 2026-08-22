@@ -7,20 +7,28 @@ export default function ProductGrid({ onSelectProduct, activeCategory, onCategor
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredProducts = useMemo(() => {
+    const query = searchQuery.toLowerCase().replace(/[^a-z0-9]/g, '').trim();
+
     return products.filter((item) => {
       // Category match
       const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
 
-      // Search match
-      const query = searchQuery.toLowerCase().trim();
-      const matchesSearch =
-        !query ||
-        item.model.toLowerCase().includes(query) ||
-        item.name.toLowerCase().includes(query) ||
-        item.categoryLabel.toLowerCase().includes(query) ||
-        (item.description && item.description.toLowerCase().includes(query));
+      if (!matchesCategory) return false;
+      if (!query) return true;
 
-      return matchesCategory && matchesSearch;
+      // Cleaned model & name matching for flexible search (e.g. "CLX8002" or "8002" or "clx 8002")
+      const cleanModel = item.model.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cleanName = item.name.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cleanId = item.id.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cleanCategory = item.categoryLabel.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+      return (
+        cleanModel.includes(query) ||
+        cleanName.includes(query) ||
+        cleanId.includes(query) ||
+        cleanCategory.includes(query) ||
+        (item.sizeShort && item.sizeShort.toLowerCase().includes(query))
+      );
     });
   }, [activeCategory, searchQuery]);
 
@@ -44,7 +52,7 @@ export default function ProductGrid({ onSelectProduct, activeCategory, onCategor
           <Search size={18} />
           <input
             type="text"
-            placeholder="Search by model (e.g. 8002, 801, tile)..."
+            placeholder="Search code or category (e.g. 8002, 801, 804, 101)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -60,8 +68,8 @@ export default function ProductGrid({ onSelectProduct, activeCategory, onCategor
         </div>
       ) : (
         <div style={{ textAlign: 'center', padding: '4rem 1rem', color: 'var(--text-muted)' }}>
-          <p style={{ fontSize: '1.2rem', fontWeight: '600' }}>No matching products found.</p>
-          <p style={{ fontSize: '0.9rem' }}>Try refining your search keyword or switching categories.</p>
+          <p style={{ fontSize: '1.2rem', fontWeight: '600' }}>No matching catalogue product found.</p>
+          <p style={{ fontSize: '0.9rem' }}>Try searching by product code (e.g. 8002, 8005, 8004, 801, 802, 807, 804, 101, 102, 103, 110).</p>
         </div>
       )}
     </div>

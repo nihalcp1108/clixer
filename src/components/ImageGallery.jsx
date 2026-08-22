@@ -3,14 +3,15 @@ import SectionTitle from './SectionTitle';
 
 export default function ImageGallery() {
   const galleryItems = [
-    { title: "CLX 8002 Linear Channel", category: "Channel Drainers", image: "/images/products/clx-8002.png" },
-    { title: "CLX 8005 Wave Drainer", category: "Channel Drainers", image: "/images/products/clx-8005.png" },
-    { title: "CLX 8004 Tile Insert Channel", category: "Channel Drainers", image: "/images/products/clx-8004.png" },
-    { title: "CLX 801 Designer Square", category: "Designer Drainers", image: "/images/products/clx-801.png" },
-    { title: "CLX 802 Grid Dot Square", category: "Designer Drainers", image: "/images/products/clx-802.png" },
-    { title: "CLX 804 Tile Insert Drainer", category: "Designer Drainers", image: "/images/products/clx-804.png" },
-    { title: "Stainless Steel Cockroach Bowl", category: "Drain Trap", image: "/images/products/cockroach-bowl.png" },
-    { title: "Tile Leveling Jack Kit", category: "Tile Tools", image: "/images/products/tile-leveling-hero.png" },
+    { title: "CLX 8002", category: "Channel Drainer", image: "/images/products/clx-8002.png" },
+    { title: "CLX 8005", category: "Channel Drainer", image: "/images/products/clx-8005.png" },
+    { title: "CLX8004", category: "Channel Drainer", image: "/images/products/clx-8004.png" },
+    { title: "CLX 801 Premium", category: "Premium Square Drain", image: "/images/products/clx-801.png" },
+    { title: "CLX 802 Premium", category: "Premium Square Drain", image: "/images/products/clx-802.png" },
+    { title: "CLX807 Premium", category: "Premium Square Drain", image: "/images/products/clx-807.png" },
+    { title: "CLX804 Premium", category: "Tile Insert", image: "/images/products/clx-804.png" },
+    { title: "CLX 101 Flat Cut", category: "Flat Cut", image: "/images/products/clx-101.png" },
+    { title: "COCKROACH BOWL", category: "Other Products", image: "/images/products/cockroach-bowl.png" },
   ];
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -40,7 +41,7 @@ export default function ImageGallery() {
           }}>
             <img
               src={galleryItems[activeImageIndex].image}
-              alt={galleryItems[activeImageIndex].title}
+              alt={`Clixer ${galleryItems[activeImageIndex].title} ${galleryItems[activeImageIndex].category}`}
               className="gallery-display-img"
               style={{ maxHeight: '300px', maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.15))', transition: 'all 0.3s ease' }}
             />
