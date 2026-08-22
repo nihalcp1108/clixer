@@ -2380,6 +2380,49 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0.5rem;
 }
 
+/* Interactive Gallery Responsive Layout */
+.gallery-main-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.gallery-thumbs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .gallery-main-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-thumbs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .gallery-display-box {
+    padding: 1.5rem 1rem !important;
+    min-height: 260px !important;
+  }
+
+  .gallery-display-img {
+    max-height: 200px !important;
+  }
+
+  .thumb-title {
+    font-size: 0.68rem !important;
+  }
+}
+
 /* Who We Are Section */
 .who-we-are-section {
   padding: 5.5rem 0;
