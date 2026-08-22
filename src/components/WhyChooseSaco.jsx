@@ -46,7 +46,7 @@ export default function WhyChooseSaco() {
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(null);
 
-  // Check window viewport size for responsive slide structure (2 cards per tab on desktop/Windows!)
+  // Check window viewport size for responsive slide structure (2 cards per view on desktop/Windows!)
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 769);
@@ -56,7 +56,7 @@ export default function WhyChooseSaco() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const totalPages = isMobile ? features.length : Math.ceil(features.length / 2); // 3 tabs on desktop/Windows (2 cards each), 6 on mobile
+  const totalPages = isMobile ? features.length : Math.ceil(features.length / 2); // 3 pages on desktop/Windows (2 cards each), 6 on mobile
 
   // Reset activeIndex if out of bounds on resize
   useEffect(() => {
@@ -65,12 +65,12 @@ export default function WhyChooseSaco() {
     }
   }, [isMobile, totalPages, activeIndex]);
 
-  // Auto-advance every 2 seconds (2000ms)
+  // Auto-advance every 3 seconds (3000ms) for ultra-smooth scrolling
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % totalPages);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [isPaused, totalPages]);
 
@@ -193,24 +193,16 @@ export default function WhyChooseSaco() {
           </div>
         </div>
 
-        {/* 2-Second Timer Pagination Dots */}
+        {/* Minimal Luxury Dots Pagination */}
         <div className="why-pagination">
-          {Array.from({ length: totalPages }).map((_, idx) => {
-            const label = isMobile 
-              ? features[idx].num 
-              : `Tab 0${idx + 1} (${features[idx * 2].num}-${features[idx * 2 + 1]?.num})`;
-            return (
-              <button
-                key={idx}
-                className={`why-dot ${activeIndex === idx ? 'active' : ''}`}
-                onClick={() => setActiveIndex(idx)}
-                aria-label={`Go to slide page ${idx + 1}`}
-              >
-                <span>{label}</span>
-                {activeIndex === idx && <div className={`dot-timer-bar ${!isPaused ? 'running' : ''}`} />}
-              </button>
-            );
-          })}
+          {Array.from({ length: totalPages }).map((_, idx) => (
+            <button
+              key={idx}
+              className={`why-dot ${activeIndex === idx ? 'active' : ''}`}
+              onClick={() => setActiveIndex(idx)}
+              aria-label={`Go to slide page ${idx + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

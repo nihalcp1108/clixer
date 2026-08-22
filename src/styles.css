@@ -2709,7 +2709,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
-/* 2-Second Timer Progress Bar */
+/* 3-Second Timer Progress Bar */
 .why-progress-line {
   position: absolute;
   bottom: 0;
@@ -2722,36 +2722,34 @@ h1, h2, h3, h4, h5, h6 {
 
 .why-progress-line.animating {
   width: 100%;
-  transition: width 2s linear;
+  transition: width 3s linear;
 }
 
-/* Dots Pagination Bar */
+/* Minimal Luxury Dots Pagination Bar */
 .why-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   margin-top: 2rem;
 }
 
 .why-dot {
-  position: relative;
-  border: 1px solid var(--light-border);
-  background: #ffffff;
-  border-radius: var(--radius-full);
-  padding: 0.35rem 0.85rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-muted);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--light-border);
+  background: var(--light-border);
+  padding: 0;
   cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .why-dot.active {
+  width: 28px;
+  border-radius: 12px;
+  background: var(--primary);
   border-color: var(--primary);
-  color: var(--primary);
-  background: rgba(101, 15, 22, 0.05);
 }
 
 .dot-timer-bar {
