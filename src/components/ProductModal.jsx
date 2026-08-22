@@ -138,19 +138,18 @@ export default function ProductModal({ product, onClose }) {
             )}
 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1rem' }}>
+            <div className="modal-actions-group">
               <a
                 href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{ flex: 1 }}
+                className="btn btn-primary modal-wa-btn"
               >
                 <MessageSquare size={16} /> Inquire on WhatsApp
               </a>
               <a
                 href={`tel:${COMPANY_INFO.phone}`}
-                className="btn btn-secondary"
+                className="btn btn-secondary modal-call-btn"
               >
                 <Phone size={16} /> Call
               </a>

@@ -1921,6 +1921,112 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+.modal-actions-group {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.25rem;
+}
+
+.modal-wa-btn {
+  flex: 1;
+}
+
+/* Mobile Product Details Modal Optimization (<= 768px) */
+@media (max-width: 768px) {
+  .modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+    background: rgba(15, 23, 42, 0.82);
+  }
+
+  .modal-container {
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35);
+    animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes modalSlideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .modal-close-btn {
+    top: 0.85rem;
+    right: 0.85rem;
+    width: 36px;
+    height: 36px;
+    background: #ffffff;
+    border: 1px solid var(--light-border);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    z-index: 20;
+  }
+
+  .modal-content-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-image-col {
+    padding: 1.75rem 1.25rem 1rem 1.25rem;
+    border-bottom: 1px solid var(--light-border);
+  }
+
+  .modal-image-col img.main-img {
+    max-height: 180px;
+  }
+
+  .modal-info-col {
+    padding: 1.25rem 1.25rem 1.75rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .modal-header-info h2 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+  }
+
+  .modal-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--light-border);
+    margin-top: 0.75rem;
+  }
+
+  .price-table {
+    min-width: 380px;
+    font-size: 0.78rem;
+  }
+
+  .price-table th, 
+  .price-table td {
+    padding: 0.5rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  .modal-actions-group {
+    position: sticky;
+    bottom: 0;
+    background: #ffffff;
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--light-border);
+    z-index: 10;
+  }
+
+  .modal-wa-btn,
+  .modal-call-btn {
+    font-size: 0.85rem;
+    padding: 0.75rem 0.85rem;
+  }
+}
+
 /* ==========================================================================
    CONTACT SECTION
    ========================================================================== */
