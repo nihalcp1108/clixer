@@ -69,7 +69,7 @@ export default function Home() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'why-saco', 'catalogue', 'quality', 'gallery', 'contact'];
+      const sections = ['hero', 'why-saco', 'catalogue', 'gallery', 'quality', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -201,14 +201,14 @@ export default function Home() {
         {/* 5. AUTO-SCROLLING MARQUEE TICKER BANNER (RIGHT UNDER PRODUCTS SHOWING) */}
         <CertificationStrip />
 
-        {/* 6. QUALITY SPOTLIGHT & CERTIFICATIONS */}
-        <div className="reveal-section">
-          <QualitySection />
-        </div>
-
-        {/* 7. INTERACTIVE PRODUCT GALLERY */}
+        {/* 6. INTERACTIVE PRODUCT GALLERY (PRODUCT SHOWCASE) */}
         <div id="gallery" className="reveal-section">
           <ImageGallery />
+        </div>
+
+        {/* 7. QUALITY SPOTLIGHT & CERTIFICATIONS (RIGHT UNDER PRODUCT SHOWCASE / GALLERY) */}
+        <div id="quality" className="reveal-section">
+          <QualitySection />
         </div>
 
         {/* 8. B2B INQUIRY CTA BANNER */}
