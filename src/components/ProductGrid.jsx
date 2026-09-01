@@ -16,13 +16,17 @@ export default function ProductGrid({ onSelectProduct, activeCategory, onCategor
       if (!matchesCategory) return false;
       if (!query) return true;
 
-      // Cleaned model & name matching for flexible search (e.g. "CLX8002" or "8002" or "clx 8002")
-      const cleanModel = item.model.toLowerCase().replace(/[^a-z0-9]/g, '');
-      const cleanName = item.name.toLowerCase().replace(/[^a-z0-9]/g, '');
-      const cleanId = item.id.toLowerCase().replace(/[^a-z0-9]/g, '');
-      const cleanCategory = item.categoryLabel.toLowerCase().replace(/[^a-z0-9]/g, '');
+      // Cleaned code, series, model & name matching for flexible search (e.g. "101", "801", "CLX101", "Flat Cut")
+      const cleanCode = (item.code || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cleanSeries = (item.series || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cleanModel = (item.model || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cleanName = (item.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cleanId = (item.id || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cleanCategory = (item.categoryLabel || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
       return (
+        cleanCode.includes(query) ||
+        cleanSeries.includes(query) ||
         cleanModel.includes(query) ||
         cleanName.includes(query) ||
         cleanId.includes(query) ||

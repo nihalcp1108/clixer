@@ -56,7 +56,7 @@ export default function ProductModal({ product, onClose }) {
   const currentDynamicPrice = calculatePrice();
 
   const whatsappMessage = encodeURIComponent(
-    `Hello SACO Trading, I would like to inquire about CLIXER product ${product.model} (${product.name}) - Selected Size: ${selectedSizeKey || 'Standard'}, Finish: ${selectedFinish}, Price: ${currentDynamicPrice}.`
+    `Hello SACO Trading, I would like to inquire about CLIXER product Code: ${product.code} (${product.name}) - Selected Size: ${selectedSizeKey || 'Standard'}, Finish: ${selectedFinish}, Price: ${currentDynamicPrice}.`
   );
 
   const productSchema = generateProductSchema(product);
@@ -64,8 +64,8 @@ export default function ProductModal({ product, onClose }) {
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <SEO
-        title={`${product.name} | ${SEO_CONFIG.siteName}`}
-        description={product.tagline || `${product.name} AISI 304 Stainless Steel`}
+        title={`Code: ${product.code} - ${product.name} | ${SEO_CONFIG.siteName}`}
+        description={product.tagline || `${product.code} (${product.name}) AISI 304 Stainless Steel`}
         canonicalPath={`?product=${product.id}`}
         ogImage={product.image}
         ogType="product"
@@ -80,14 +80,14 @@ export default function ProductModal({ product, onClose }) {
         <div className="modal-content-grid">
           {/* Left Column: Image & Finishes */}
           <div className="modal-image-col">
-            <img src={product.image} alt={`Clixer ${product.model} ${product.categoryLabel}`} className="main-img" />
+            <img src={product.image} alt={`Clixer Code ${product.code} ${product.name}`} className="main-img" />
 
             {product.colorsImage && (
               <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: '700', display: 'block', marginBottom: '0.5rem', letterSpacing: '1px' }}>
                   CATALOGUE METALLIC FINISHES
                 </span>
-                <img src={product.colorsImage} alt={`${product.model} Available Finishes`} style={{ maxHeight: '42px', margin: '0 auto' }} />
+                <img src={product.colorsImage} alt={`Code ${product.code} Available Finishes`} style={{ maxHeight: '42px', margin: '0 auto' }} />
               </div>
             )}
           </div>
@@ -95,14 +95,29 @@ export default function ProductModal({ product, onClose }) {
           {/* Right Column: Information, Variant Selector & Pricing */}
           <div className="modal-info-col">
             <div className="modal-header-info">
-              <span className="model-code">{product.model}</span>
-              <h2>{product.name}</h2>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+                <span className="b2b-code-badge" style={{ background: 'var(--primary)', color: '#ffffff', border: 'none', padding: '0.25rem 0.65rem', fontSize: '0.8rem', fontWeight: 800 }}>
+                  CODE: {product.code}
+                </span>
+                <span className="badge-category" style={{ fontSize: '0.78rem' }}>
+                  <Tag size={13} /> {product.series || product.categoryLabel}
+                </span>
+              </div>
+              
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, margin: '0.2rem 0 0.2rem 0', color: 'var(--text-main)' }}>
+                {product.code} {product.series && <span style={{ fontStyle: 'italic', color: 'var(--accent-gold, #c5a059)', fontWeight: 500 }}>{product.series}</span>}
+              </h2>
+
+              <p style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 600, margin: '0 0 0.8rem 0' }}>
+                Product Name: <strong style={{ color: 'var(--text-main)' }}>{product.name}</strong>
+              </p>
+
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '0.4rem', flexWrap: 'wrap' }}>
                 <span className="badge-304">
                   <ShieldCheck size={14} /> {product.material}
                 </span>
-                <span className="badge-category">
-                  <Tag size={13} /> {product.categoryLabel}
+                <span className="badge-304" style={{ background: 'rgba(212, 175, 55, 0.15)', color: 'var(--accent-gold, #c5a059)', border: '1px solid var(--accent-gold)' }}>
+                  Clixer® Logo & 304 Seal Engraved
                 </span>
               </div>
             </div>

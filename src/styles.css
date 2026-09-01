@@ -3322,11 +3322,87 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1;
 }
 
+/* Authentic Laser-Engraved Metallic Seals Overlay (Clixer® + 304 Stamp) */
+.engraved-seals-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.engraved-seal-brand {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #2d3748;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 0.18rem 0.52rem;
+  border-radius: 4px;
+  border: 1px solid rgba(200, 75, 96, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.engraved-seal-brand sup {
+  font-size: 0.55rem;
+  margin-left: 1px;
+  color: var(--primary);
+}
+
+.engraved-seal-grade {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #2d3748;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 0.18rem 0.52rem;
+  border-radius: 4px;
+  border: 1px solid rgba(160, 174, 192, 0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.modal-seals-overlay {
+  top: 14px;
+  left: 14px;
+  right: 14px;
+}
+
+.gallery-seals-overlay {
+  top: 16px;
+  left: 16px;
+  right: 16px;
+}
+
 .b2b-card-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.45rem;
+}
+
+.b2b-code-badge {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  background: rgba(200, 75, 96, 0.1);
+  border: 1px solid rgba(200, 75, 96, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .b2b-model-code {
@@ -3340,15 +3416,39 @@ h1, h2, h3, h4, h5, h6 {
 .b2b-cat-label {
   font-size: 0.75rem;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .b2b-card-title {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.18rem;
+  font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.15rem;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.b2b-card-title .title-code {
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.b2b-card-title .title-series {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.98rem;
+  color: var(--accent-gold, #c5a059);
+}
+
+.b2b-card-fullname {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
   cursor: pointer;
 }
 

@@ -3,15 +3,15 @@ import SectionTitle from './SectionTitle';
 
 export default function ImageGallery() {
   const galleryItems = [
-    { title: "CLX 8002", category: "Channel Drainer", image: "/images/products/clx-8002.png" },
-    { title: "CLX 8005", category: "Channel Drainer", image: "/images/products/clx-8005.png" },
-    { title: "CLX8004", category: "Channel Drainer", image: "/images/products/clx-8004.png" },
-    { title: "CLX 801 Premium", category: "Premium Square Drain", image: "/images/products/clx-801.png" },
-    { title: "CLX 802 Premium", category: "Premium Square Drain", image: "/images/products/clx-802.png" },
-    { title: "CLX807 Premium", category: "Premium Square Drain", image: "/images/products/clx-807.png" },
-    { title: "CLX804 Premium", category: "Tile Insert", image: "/images/products/clx-804.png" },
-    { title: "CLX 101 Flat Cut", category: "Flat Cut", image: "/images/products/clx-101.png" },
-    { title: "COCKROACH BOWL", category: "Other Products", image: "/images/products/cockroach-bowl.png" },
+    { code: "CLX 8002", name: "Channel Drainer", category: "Channel Drainer", image: "/images/products/clx-8002.png" },
+    { code: "CLX 8005", name: "Channel Drainer", category: "Channel Drainer", image: "/images/products/clx-8005.png" },
+    { code: "CLX 8004", name: "Channel Drainer", category: "Channel Drainer", image: "/images/products/clx-8004.png" },
+    { code: "CLX 801", name: "Premium Square Drain", category: "Premium", image: "/images/products/clx-801.png" },
+    { code: "CLX 802", name: "Premium Square Drain", category: "Premium", image: "/images/products/clx-802.png" },
+    { code: "CLX 807", name: "Premium Square Drain", category: "Premium", image: "/images/products/clx-807.png" },
+    { code: "CLX 804", name: "Tile Insert Drain", category: "Tile Insert", image: "/images/products/clx-804.png" },
+    { code: "CLX 101", name: "Flat Cut Floor Drainer", category: "Flat Cut", image: "/images/products/clx-101.png" },
+    { code: "COCKROACH BOWL", name: "Anti-Odor Protection Trap", category: "Other Products", image: "/images/products/cockroach-bowl.png" },
   ];
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -41,13 +41,23 @@ export default function ImageGallery() {
           }}>
             <img
               src={galleryItems[activeImageIndex].image}
-              alt={`Clixer ${galleryItems[activeImageIndex].title} ${galleryItems[activeImageIndex].category}`}
+              alt={`Clixer Code ${galleryItems[activeImageIndex].code} ${galleryItems[activeImageIndex].name}`}
               className="gallery-display-img"
               style={{ maxHeight: '300px', maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.15))', transition: 'all 0.3s ease' }}
             />
             <div style={{ marginTop: '1.25rem' }}>
-              <span className="badge-primary">{galleryItems[activeImageIndex].category}</span>
-              <h4 style={{ marginTop: '0.4rem', fontSize: '1.15rem' }}>{galleryItems[activeImageIndex].title}</h4>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+                <span className="b2b-code-badge" style={{ background: 'var(--primary)', color: '#ffffff', fontSize: '0.75rem', fontWeight: 800, padding: '0.2rem 0.55rem', borderRadius: '4px' }}>
+                  CODE: {galleryItems[activeImageIndex].code}
+                </span>
+                <span className="badge-primary">{galleryItems[activeImageIndex].category}</span>
+              </div>
+              <h4 style={{ marginTop: '0.4rem', fontSize: '1.15rem', fontWeight: 700 }}>
+                {galleryItems[activeImageIndex].code} {galleryItems[activeImageIndex].category !== 'Other Products' ? galleryItems[activeImageIndex].category : ''}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '0.2rem 0 0 0', fontWeight: 500 }}>
+                {galleryItems[activeImageIndex].name}
+              </p>
             </div>
           </div>
 
@@ -68,9 +78,12 @@ export default function ImageGallery() {
                   transition: 'var(--transition-fast)'
                 }}
               >
-                <img src={item.image} alt={item.title} style={{ height: '60px', maxWidth: '100%', margin: '0 auto', objectFit: 'contain' }} />
-                <span className="thumb-title" style={{ display: 'block', fontSize: '0.73rem', fontWeight: '600', color: 'var(--text-main)', marginTop: '0.35rem', lineHeight: '1.25' }}>
-                  {item.title}
+                <img src={item.image} alt={item.code} style={{ height: '60px', maxWidth: '100%', margin: '0 auto', objectFit: 'contain' }} />
+                <span className="thumb-title" style={{ display: 'block', fontSize: '0.76rem', fontWeight: '800', color: 'var(--primary)', marginTop: '0.35rem', lineHeight: '1.2' }}>
+                  {item.code}
+                </span>
+                <span style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.2' }}>
+                  {item.category}
                 </span>
               </div>
             ))}

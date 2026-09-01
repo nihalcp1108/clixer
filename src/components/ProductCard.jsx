@@ -22,7 +22,7 @@ export default function ProductCard({ product, index = 0, onSelect }) {
         
         <img 
           src={activeFinishView === 'colors' && product.colorsImage ? product.colorsImage : product.image} 
-          alt={`Clixer ${product.model} ${product.categoryLabel}`} 
+          alt={`Clixer ${product.code} ${product.name}`} 
           loading="lazy"
           className="b2b-card-img" 
         />
@@ -37,13 +37,17 @@ export default function ProductCard({ product, index = 0, onSelect }) {
       {/* Card Content Body */}
       <div className="b2b-card-body">
         <div className="b2b-card-meta">
-          <span className="b2b-model-code">{product.model}</span>
-          <span className="b2b-cat-label">{product.categoryLabel}</span>
+          <span className="b2b-code-badge">CODE: {product.code}</span>
+          <span className="b2b-cat-label">{product.series || product.categoryLabel}</span>
         </div>
 
         <h3 className="b2b-card-title" onClick={() => onSelect(product)}>
-          {product.name}
+          <span className="title-code">{product.code}</span>
+          {product.series && <span className="title-series">{product.series}</span>}
         </h3>
+        <div className="b2b-card-fullname" onClick={() => onSelect(product)}>
+          {product.name}
+        </div>
         
         {/* Available Sizes Bar */}
         {product.sizeShort && (
