@@ -38,6 +38,19 @@ export default function ProductCard({ product, index = 0, onSelect }) {
       <div className="b2b-card-body">
         <div className="b2b-card-meta">
           <span className="b2b-code-badge">CODE: {product.code}</span>
+          {product.code === 'CLX 804' && (
+            <span style={{
+              background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
+              color: '#fff',
+              fontSize: '0.68rem',
+              fontWeight: 800,
+              padding: '0.15rem 0.5rem',
+              borderRadius: '4px',
+              letterSpacing: '0.5px'
+            }}>
+              INTERACTIVE CODE MODEL
+            </span>
+          )}
           <span className="b2b-cat-label">{product.series || product.categoryLabel}</span>
         </div>
 

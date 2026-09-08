@@ -4,6 +4,7 @@ import { COMPANY_INFO } from '../data/products';
 import SEO from './SEO/SEO';
 import { generateProductSchema } from '../utils/seo';
 import { SEO_CONFIG } from '../config/seo';
+import CLX804CodeVisualizer from './CLX804CodeVisualizer';
 
 export default function ProductModal({ product, onClose }) {
   // Variant states for interactive price calculation
@@ -213,6 +214,13 @@ export default function ProductModal({ product, onClose }) {
             </div>
           </div>
         </div>
+
+        {/* CODE VISUALIZER FOR CLX 804 */}
+        {(product.code === 'CLX 804' || product.id === 'clx-804-premium') && (
+          <div style={{ marginTop: '2rem' }}>
+            <CLX804CodeVisualizer product={product} />
+          </div>
+        )}
       </div>
     </div>
   );
