@@ -17,7 +17,6 @@ import SEO from '../components/SEO/SEO';
 import { getPageStructuredData } from '../components/SEO/StructuredData';
 import { SEO_CONFIG } from '../config/seo';
 import { products, CATEGORIES } from '../data/products';
-import CLX804CodeVisualizer from '../components/CLX804CodeVisualizer';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -191,11 +190,6 @@ export default function Home() {
               activeCategory={activeCategory}
               onCategoryChange={(catId) => handleCategoryChange(catId)}
             />
-
-            {/* CLX 804 CODE VISUALIZER SPOTLIGHT */}
-            <div style={{ marginTop: '3rem' }}>
-              <CLX804CodeVisualizer product={products.find(p => p.code === 'CLX 804')} />
-            </div>
           </div>
         </section>
 

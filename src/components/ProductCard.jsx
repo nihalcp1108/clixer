@@ -19,14 +19,14 @@ export default function ProductCard({ product, index = 0, onSelect }) {
         <span className="b2b-material-tag">
           <ShieldCheck size={11} /> AISI 304
         </span>
-        
-        <img 
-          src={activeFinishView === 'colors' && product.colorsImage ? product.colorsImage : product.image} 
-          alt={`Clixer ${product.code} ${product.name}`} 
+
+        <img
+          src={activeFinishView === 'colors' && product.colorsImage ? product.colorsImage : product.image}
+          alt={`Clixer ${product.code} ${product.name}`}
           loading="lazy"
-          className="b2b-card-img" 
+          className="b2b-card-img"
         />
-        
+
         <div className="b2b-card-hover">
           <span className="b2b-quick-btn">
             <Eye size={14} /> QUICK VIEW
@@ -38,19 +38,6 @@ export default function ProductCard({ product, index = 0, onSelect }) {
       <div className="b2b-card-body">
         <div className="b2b-card-meta">
           <span className="b2b-code-badge">CODE: {product.code}</span>
-          {product.code === 'CLX 804' && (
-            <span style={{
-              background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
-              color: '#fff',
-              fontSize: '0.68rem',
-              fontWeight: 800,
-              padding: '0.15rem 0.5rem',
-              borderRadius: '4px',
-              letterSpacing: '0.5px'
-            }}>
-              INTERACTIVE CODE MODEL
-            </span>
-          )}
           <span className="b2b-cat-label">{product.series || product.categoryLabel}</span>
         </div>
 
@@ -61,7 +48,7 @@ export default function ProductCard({ product, index = 0, onSelect }) {
         <div className="b2b-card-fullname" onClick={() => onSelect(product)}>
           {product.name}
         </div>
-        
+
         {/* Available Sizes Bar */}
         {product.sizeShort && (
           <div className="b2b-size-bar">
@@ -76,9 +63,9 @@ export default function ProductCard({ product, index = 0, onSelect }) {
             <span className="swatch-title">Finishes:</span>
             <div className="swatch-dots">
               {finishSwatches.map((s, i) => (
-                <span 
-                  key={i} 
-                  className="swatch-dot" 
+                <span
+                  key={i}
+                  className="swatch-dot"
                   title={s.name}
                   style={{ background: s.bg, border: `1px solid ${s.border}` }}
                   onMouseEnter={() => setActiveFinishView('colors')}
