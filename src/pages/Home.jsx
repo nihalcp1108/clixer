@@ -6,7 +6,6 @@ import ProductGrid from '../components/ProductGrid';
 import CertificationStrip from '../components/CertificationStrip';
 import WhyChooseSaco from '../components/WhyChooseSaco';
 import B2bCtaSection from '../components/B2bCtaSection';
-import ImageGallery from '../components/ImageGallery';
 import QualitySection from '../components/QualitySection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -69,7 +68,7 @@ export default function Home() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'catalogue', 'why-saco', 'gallery', 'quality', 'contact'];
+      const sections = ['hero', 'catalogue', 'why-saco', 'quality', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -206,12 +205,7 @@ export default function Home() {
           <B2bCtaSection />
         </div>
 
-        {/* 7. INTERACTIVE PRODUCT GALLERY (PRODUCT SHOWCASE) */}
-        <div id="gallery" className="reveal-section">
-          <ImageGallery />
-        </div>
-
-        {/* 8. QUALITY SPOTLIGHT & CERTIFICATIONS (RIGHT UNDER PRODUCT SHOWCASE) */}
+        {/* 7. QUALITY SPOTLIGHT & CERTIFICATIONS */}
         <div id="quality" className="reveal-section">
           <QualitySection />
         </div>
