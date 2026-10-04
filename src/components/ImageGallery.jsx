@@ -46,17 +46,11 @@ export default function ImageGallery() {
               style={{ maxHeight: '300px', maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.15))', transition: 'all 0.3s ease' }}
             />
             <div style={{ marginTop: '1.25rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                <span className="b2b-code-badge" style={{ background: 'var(--primary)', color: '#ffffff', fontSize: '0.75rem', fontWeight: 800, padding: '0.2rem 0.55rem', borderRadius: '4px' }}>
-                  CODE: {galleryItems[activeImageIndex].code}
-                </span>
-                <span className="badge-primary">{galleryItems[activeImageIndex].category}</span>
-              </div>
-              <h4 style={{ marginTop: '0.4rem', fontSize: '1.15rem', fontWeight: 700 }}>
-                {galleryItems[activeImageIndex].code} {galleryItems[activeImageIndex].category !== 'Other Products' ? galleryItems[activeImageIndex].category : ''}
-              </h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '0.2rem 0 0 0', fontWeight: 500 }}>
+              <h4 style={{ margin: '0 0 0.35rem 0', fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>
                 {galleryItems[activeImageIndex].name}
+              </h4>
+              <p style={{ fontSize: '0.95rem', color: 'var(--primary)', margin: 0, fontWeight: 700, letterSpacing: '0.5px' }}>
+                {galleryItems[activeImageIndex].code}
               </p>
             </div>
           </div>
@@ -79,11 +73,11 @@ export default function ImageGallery() {
                 }}
               >
                 <img src={item.image} alt={item.code} style={{ height: '60px', maxWidth: '100%', margin: '0 auto', objectFit: 'contain' }} />
-                <span className="thumb-title" style={{ display: 'block', fontSize: '0.76rem', fontWeight: '800', color: 'var(--primary)', marginTop: '0.35rem', lineHeight: '1.2' }}>
-                  {item.code}
+                <span className="thumb-title" style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: 'var(--text-main)', marginTop: '0.35rem', lineHeight: '1.2' }}>
+                  {item.name}
                 </span>
-                <span style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.2' }}>
-                  {item.category}
+                <span style={{ display: 'block', fontSize: '0.7rem', fontWeight: '700', color: 'var(--primary)', lineHeight: '1.2', marginTop: '0.15rem' }}>
+                  {item.code}
                 </span>
               </div>
             ))}

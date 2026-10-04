@@ -1,95 +1,60 @@
-import React, { useState } from 'react';
-import { Eye, ShieldCheck, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { ShieldCheck } from 'lucide-react';
+
+const DUAL_GRADE_CODES = ['CLX 101', 'CLX 102', 'CLX 103', 'CLX 110', 'COCKROACH BOWL'];
 
 export default function ProductCard({ product, index = 0, onSelect }) {
-  const [activeFinishView, setActiveFinishView] = useState('main'); // 'main' or 'colors'
-
-  const finishSwatches = [
-    { name: 'SATIN', bg: '#cbd5e1', border: '#94a3b8' },
-    { name: 'GOLD / R GOLD', bg: '#d4af37', border: '#fef08a' },
-    { name: 'BLACK', bg: '#18181b', border: '#3f3f46' },
-  ];
-
   const styleDelay = { '--card-index': index % 4 };
 
+  const isDualGrade =
+    (product.material && product.material.includes('202') && product.material.includes('304')) ||
+    DUAL_GRADE_CODES.includes(product.code);
+
+  const hasAisi = product.material && product.material.includes('AISI');
+
   return (
-    <article className="b2b-product-card reveal-card" style={styleDelay}>
-      {/* Top Image Frame */}
-      <div className="b2b-card-image-box" onClick={() => onSelect(product)}>
-        <span className="b2b-material-tag">
-          <ShieldCheck size={11} /> AISI 304
-        </span>
+    <article
+      className="b2b-product-card reveal-card"
+      style={styleDelay}
+      onClick={() => onSelect && onSelect(product)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onSelect && onSelect(product);
+        }
+      }}
+    >
+      {/* 1. Product Image */}
+      <div className="b2b-card-image-box">
+        {hasAisi && (
+          <div className="b2b-tags-container">
+            <span className="b2b-material-tag">
+              <ShieldCheck size={11} /> AISI 304
+            </span>
+            {isDualGrade && (
+              <span className="b2b-material-tag b2b-material-tag-202">
+                <ShieldCheck size={11} /> AISI 202
+              </span>
+            )}
+          </div>
+        )}
 
         <img
-          src={activeFinishView === 'colors' && product.colorsImage ? product.colorsImage : product.image}
+          src={product.image}
           alt={`Clixer ${product.code} ${product.name}`}
           loading="lazy"
           className="b2b-card-img"
         />
-
-        <div className="b2b-card-hover">
-          <span className="b2b-quick-btn">
-            <Eye size={14} /> QUICK VIEW
-          </span>
-        </div>
       </div>
 
-      {/* Card Content Body */}
+      {/* 2. Product Name & 3. Product Code */}
       <div className="b2b-card-body">
-        <div className="b2b-card-meta">
-          <span className="b2b-code-badge">CODE: {product.code}</span>
-          <span className="b2b-cat-label">{product.series || product.categoryLabel}</span>
-        </div>
-
-        <h3 className="b2b-card-title" onClick={() => onSelect(product)}>
-          <span className="title-code">{product.code}</span>
-          {product.series && <span className="title-series">{product.series}</span>}
-        </h3>
-        <div className="b2b-card-fullname" onClick={() => onSelect(product)}>
-          {product.name}
-        </div>
-
-        {/* Available Sizes Bar */}
-        {product.sizeShort && (
-          <div className="b2b-size-bar">
-            <span className="size-label">Available Sizes:</span>
-            <span className="size-values">{product.sizeShort}</span>
-          </div>
-        )}
-
-        {/* Color Finish Selector Swatches */}
-        {product.colorsImage ? (
-          <div className="b2b-swatch-bar">
-            <span className="swatch-title">Finishes:</span>
-            <div className="swatch-dots">
-              {finishSwatches.map((s, i) => (
-                <span
-                  key={i}
-                  className="swatch-dot"
-                  title={s.name}
-                  style={{ background: s.bg, border: `1px solid ${s.border}` }}
-                  onMouseEnter={() => setActiveFinishView('colors')}
-                  onMouseLeave={() => setActiveFinishView('main')}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-
-        <div className="b2b-card-footer">
-          <div className="b2b-mat-info">
-            <span>Price:</span>
-            <strong className="b2b-price-glow">
-              {product.startingPrice ? (product.startingPrice.startsWith('₹') ? `From ${product.startingPrice}` : product.startingPrice) : 'On Request'}
-            </strong>
-          </div>
-
-          <button className="btn btn-primary b2b-view-btn" onClick={() => onSelect(product)}>
-            <span>VIEW PRODUCT</span>
-            <ArrowRight size={13} />
-          </button>
-        </div>
+        <h3 className="b2b-card-name">{product.name}</h3>
+        <p className="b2b-card-code">{product.code}</p>
       </div>
     </article>
   );
 }
+

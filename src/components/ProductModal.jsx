@@ -1,22 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { X, ShieldCheck, Check, MessageSquare, Phone, Tag } from 'lucide-react';
-import { COMPANY_INFO } from '../data/products';
+import { X, ShieldCheck } from 'lucide-react';
 import SEO from './SEO/SEO';
-import { generateProductSchema } from '../utils/seo';
 import { SEO_CONFIG } from '../config/seo';
 
 export default function ProductModal({ product, onClose }) {
-  // Variant states for interactive price calculation
-  const [selectedSizeKey, setSelectedSizeKey] = useState('');
-  const [selectedFinish, setSelectedFinish] = useState('SATIN');
+  const [activeImage, setActiveImage] = useState(product?.image);
 
   useEffect(() => {
     if (product) {
-      if (product.priceMatrix) {
-        const firstKey = Object.keys(product.priceMatrix)[0];
-        setSelectedSizeKey(firstKey || '');
-      }
-      setSelectedFinish('SATIN');
+      setActiveImage(product.image);
     }
   }, [product]);
 
@@ -27,7 +19,7 @@ export default function ProductModal({ product, onClose }) {
       }
     };
 
-    // Lock body scroll
+    // Lock body scroll while modal is active
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
 
@@ -39,181 +31,84 @@ export default function ProductModal({ product, onClose }) {
 
   if (!product) return null;
 
-  // Calculate dynamic price based on selected size & finish
-  const calculatePrice = () => {
-    if (!product.priceMatrix) {
-      return product.startingPrice || 'Price Available on Request';
-    }
-    if (selectedSizeKey && product.priceMatrix[selectedSizeKey]) {
-      const priceVal = product.priceMatrix[selectedSizeKey][selectedFinish];
-      if (priceVal) {
-        return `₹${priceVal.toLocaleString('en-IN')}`;
-      }
-    }
-    return product.startingPrice || 'Price Available on Request';
-  };
+  // Build clean gallery if alternative views exist
+  const galleryImages = [
+    { src: product.image, label: 'Main View' },
+    ...(product.colorsImage ? [{ src: product.colorsImage, label: 'Catalogue Finishes' }] : [])
+  ];
 
-  const currentDynamicPrice = calculatePrice();
+  const DUAL_GRADE_CODES = ['CLX 101', 'CLX 102', 'CLX 103', 'CLX 110', 'COCKROACH BOWL'];
 
-  const whatsappMessage = encodeURIComponent(
-    `Hello SACO Trading, I would like to inquire about CLIXER product Code: ${product.code} (${product.name}) - Selected Size: ${selectedSizeKey || 'Standard'}, Finish: ${selectedFinish}, Price: ${currentDynamicPrice}.`
-  );
+  const isDualGrade =
+    (product.material && product.material.includes('202') && product.material.includes('304')) ||
+    DUAL_GRADE_CODES.includes(product.code);
 
-  const productSchema = generateProductSchema(product);
+  const hasAisi = product.material && product.material.includes('AISI');
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <SEO
-        title={`Code: ${product.code} - ${product.name} | ${SEO_CONFIG.siteName}`}
-        description={product.tagline || `${product.code} (${product.name}) AISI 304 Stainless Steel`}
+        title={`${product.code} - ${product.name} | ${SEO_CONFIG.siteName}`}
+        description={`${product.code} ${product.name}`}
         canonicalPath={`?product=${product.id}`}
         ogImage={product.image}
         ogType="product"
-        structuredData={productSchema}
       />
 
-      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close-btn" onClick={onClose} aria-label="Close details">
+      <div className="modal-container modal-container-minimal" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close-btn" onClick={onClose} aria-label="Close product view">
           <X size={20} />
         </button>
 
-        <div className="modal-content-grid">
-          {/* Left Column: Image & Finishes */}
-          <div className="modal-image-col">
-            <img src={product.image} alt={`Clixer Code ${product.code} ${product.name}`} className="main-img" />
+        <div className="modal-minimal-content">
+          {/* 1. Large Product Image / Gallery */}
+          <div className="modal-gallery-wrapper">
+            <div className="modal-large-image-box" style={{ position: 'relative' }}>
+              {hasAisi && (
+                <div className="b2b-tags-container" style={{ top: '1rem', left: '1rem', zIndex: 5 }}>
+                  <span className="b2b-material-tag">
+                    <ShieldCheck size={12} /> AISI 304
+                  </span>
+                  {isDualGrade && (
+                    <span className="b2b-material-tag b2b-material-tag-202">
+                      <ShieldCheck size={12} /> AISI 202
+                    </span>
+                  )}
+                </div>
+              )}
 
-            {product.colorsImage && (
-              <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: '700', display: 'block', marginBottom: '0.5rem', letterSpacing: '1px' }}>
-                  CATALOGUE METALLIC FINISHES
-                </span>
-                <img src={product.colorsImage} alt={`Code ${product.code} Available Finishes`} style={{ maxHeight: '42px', margin: '0 auto' }} />
+              <img
+                src={activeImage || product.image}
+                alt={`Clixer ${product.code} ${product.name}`}
+                className="modal-large-img"
+              />
+            </div>
+
+            {galleryImages.length > 1 && (
+              <div className="modal-gallery-thumbs">
+                {galleryImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`modal-thumb-btn ${activeImage === img.src ? 'active' : ''}`}
+                    onClick={() => setActiveImage(img.src)}
+                    aria-label={`View image ${idx + 1}`}
+                  >
+                    <img src={img.src} alt="" />
+                  </button>
+                ))}
               </div>
             )}
           </div>
 
-          {/* Right Column: Information, Variant Selector & Pricing */}
-          <div className="modal-info-col">
-            <div className="modal-header-info">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-                <span className="b2b-code-badge" style={{ background: 'var(--primary)', color: '#ffffff', border: 'none', padding: '0.25rem 0.65rem', fontSize: '0.8rem', fontWeight: 800 }}>
-                  CODE: {product.code}
-                </span>
-                <span className="badge-category" style={{ fontSize: '0.78rem' }}>
-                  <Tag size={13} /> {product.series || product.categoryLabel}
-                </span>
-              </div>
-              
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, margin: '0.2rem 0 0.2rem 0', color: 'var(--text-main)' }}>
-                {product.code} {product.series && <span style={{ fontStyle: 'italic', color: 'var(--accent-gold, #c5a059)', fontWeight: 500 }}>{product.series}</span>}
-              </h2>
-
-              <p style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 600, margin: '0 0 0.8rem 0' }}>
-                Product Name: <strong style={{ color: 'var(--text-main)' }}>{product.name}</strong>
-              </p>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '0.4rem', flexWrap: 'wrap' }}>
-                <span className="badge-304">
-                  <ShieldCheck size={14} /> {product.material}
-                </span>
-                <span className="badge-304" style={{ background: 'rgba(212, 175, 55, 0.15)', color: 'var(--accent-gold, #c5a059)', border: '1px solid var(--accent-gold)' }}>
-                  Clixer® Logo & 304 Seal Engraved
-                </span>
-              </div>
-            </div>
-
-            {/* DYNAMIC CALCULATED CATALOGUE PRICE */}
-            <div className="modal-price-box">
-              <span className="price-title">Calculated Catalogue Price:</span>
-              <div className="dynamic-price-value">{currentDynamicPrice}</div>
-              <span className="price-note">*Includes official catalogue specifications</span>
-            </div>
-
-            {/* SIZE SELECTOR VARIANTS */}
-            {product.priceMatrix && (
-              <div className="modal-variant-section">
-                <label className="variant-label">Select Size:</label>
-                <div className="variant-options-grid">
-                  {Object.keys(product.priceMatrix).map((sizeKey) => (
-                    <button
-                      key={sizeKey}
-                      className={`variant-btn ${selectedSizeKey === sizeKey ? 'active' : ''}`}
-                      onClick={() => setSelectedSizeKey(sizeKey)}
-                    >
-                      {sizeKey}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* FINISH SELECTOR VARIANTS */}
-            {product.finishes && product.priceMatrix && (
-              <div className="modal-variant-section">
-                <label className="variant-label">Select Surface Finish:</label>
-                <div className="variant-options-grid">
-                  {product.finishes.map((finishName) => (
-                    <button
-                      key={finishName}
-                      className={`variant-btn ${selectedFinish === finishName ? 'active' : ''}`}
-                      onClick={() => setSelectedFinish(finishName)}
-                    >
-                      {finishName}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* FULL PRICE MATRIX TABLE */}
-            {product.priceTable && (
-              <div className="modal-table-wrapper">
-                <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', color: 'var(--text-main)', marginBottom: '0.4rem', letterSpacing: '0.5px' }}>
-                  Official Price Matrix (₹)
-                </h4>
-                <table className="price-table">
-                  <thead>
-                    <tr>
-                      <th>Size</th>
-                      <th>Satin</th>
-                      <th>Gold / R Gold</th>
-                      <th>Black</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {product.priceTable.map((row, idx) => (
-                      <tr key={idx}>
-                        <td className="size-cell">{row.size}</td>
-                        <td>{row.satin}</td>
-                        <td className="price-gold">{row.goldRgold}</td>
-                        <td className="price-black">{row.black}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-
-            {/* Action Buttons */}
-            <div className="modal-actions-group">
-              <a
-                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary modal-wa-btn"
-              >
-                <MessageSquare size={16} /> Inquire on WhatsApp
-              </a>
-              <a
-                href={`tel:${COMPANY_INFO.phone}`}
-                className="btn btn-secondary modal-call-btn"
-              >
-                <Phone size={16} /> Call
-              </a>
-            </div>
+          {/* 2. Product Name & 3. Product Code */}
+          <div className="modal-minimal-info">
+            <h2 className="modal-minimal-name">{product.name}</h2>
+            <div className="modal-minimal-code">{product.code}</div>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
