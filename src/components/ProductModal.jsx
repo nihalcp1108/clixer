@@ -5,10 +5,12 @@ import { SEO_CONFIG } from '../config/seo';
 
 export default function ProductModal({ product, onClose }) {
   const [activeImage, setActiveImage] = useState(product?.image);
+  const [selectedSize, setSelectedSize] = useState(product?.availableSizes?.[0] || null);
 
   useEffect(() => {
     if (product) {
       setActiveImage(product.image);
+      setSelectedSize(product.availableSizes?.[0] || null);
     }
   }, [product]);
 
@@ -48,8 +50,8 @@ export default function ProductModal({ product, onClose }) {
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <SEO
-        title={`${product.code} - ${product.name} | ${SEO_CONFIG.siteName}`}
-        description={`${product.code} ${product.name}`}
+        title={`${product.name} — ${product.code} | ${SEO_CONFIG.siteName}`}
+        description={`${product.name} — ${product.code}`}
         canonicalPath={`?product=${product.id}`}
         ogImage={product.image}
         ogType="product"
@@ -79,7 +81,7 @@ export default function ProductModal({ product, onClose }) {
 
               <img
                 src={activeImage || product.image}
-                alt={`Clixer ${product.code} ${product.name}`}
+                alt={`${product.name} - ${product.code}`}
                 className="modal-large-img"
               />
             </div>
@@ -101,10 +103,30 @@ export default function ProductModal({ product, onClose }) {
             )}
           </div>
 
-          {/* 2. Product Name & 3. Product Code */}
+          {/* 2. Product Name & 3. Product Code / Variant */}
           <div className="modal-minimal-info">
             <h2 className="modal-minimal-name">{product.name}</h2>
             <div className="modal-minimal-code">{product.code}</div>
+
+            {/* 4. Available Sizes (where applicable) */}
+            {product.availableSizes && product.availableSizes.length > 0 && (
+              <div className="modal-available-sizes">
+                <h4 className="modal-sizes-title">Available Sizes</h4>
+                <div className="modal-sizes-grid">
+                  {product.availableSizes.map((size, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      className={`modal-size-chip ${selectedSize === size ? 'active' : ''}`}
+                      onClick={() => setSelectedSize(size)}
+                      aria-label={`Select size ${size}`}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

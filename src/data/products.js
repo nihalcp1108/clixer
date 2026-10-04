@@ -33,15 +33,21 @@ export const products = [
     image: "/images/products/clx-8002.png",
     colorsImage: "/images/products/clx-8002-colors.png",
     finishes: ["SATIN", "GOLD / R GOLD", "BLACK"],
-    sizes: [
-      '1 FT / 100 × 300 mm (4" × 12")',
-      '1.5 FT / 100 × 450 mm (4" × 18")',
-      '2 FT / 100 × 600 mm (4" × 24")',
-      '2.5 FT / 100 × 750 mm (4" × 30")',
-      '3 FT / 100 × 900 mm (4" × 36")',
-      '4 FT / 100 × 1200 mm (4" × 48")'
+    availableSizes: [
+      "105 × 300 mm",
+      "105 × 450 mm",
+      "105 × 600 mm",
+      "105 × 750 mm",
+      "105 × 900 mm"
     ],
-    sizeShort: "1 FT • 1.5 FT • 2 FT • 2.5 FT • 3 FT • 4 FT",
+    sizes: [
+      '105 × 300 mm',
+      '105 × 450 mm',
+      '105 × 600 mm',
+      '105 × 750 mm',
+      '105 × 900 mm'
+    ],
+    sizeShort: "105 × 300 mm • 105 × 450 mm • 105 × 600 mm • 105 × 750 mm • 105 × 900 mm",
     startingPrice: "₹2,832",
     priceMatrix: {
       "1 FT": { SATIN: 2832, "GOLD / R GOLD": 4248, BLACK: 4720 },
@@ -72,15 +78,21 @@ export const products = [
     image: "/images/products/clx-8005.png",
     colorsImage: "/images/products/clx-8005-colors.png",
     finishes: ["SATIN", "GOLD / R GOLD", "BLACK"],
-    sizes: [
-      '1 FT / 100 × 300 mm (4" × 12")',
-      '1.5 FT / 100 × 450 mm (4" × 18")',
-      '2 FT / 100 × 600 mm (4" × 24")',
-      '2.5 FT / 100 × 750 mm (4" × 30")',
-      '3 FT / 100 × 900 mm (4" × 36")',
-      '4 FT / 100 × 1200 mm (4" × 48")'
+    availableSizes: [
+      "105 × 300 mm",
+      "105 × 450 mm",
+      "105 × 600 mm",
+      "105 × 750 mm",
+      "105 × 900 mm"
     ],
-    sizeShort: "1 FT • 1.5 FT • 2 FT • 2.5 FT • 3 FT • 4 FT",
+    sizes: [
+      '105 × 300 mm',
+      '105 × 450 mm',
+      '105 × 600 mm',
+      '105 × 750 mm',
+      '105 × 900 mm'
+    ],
+    sizeShort: "105 × 300 mm • 105 × 450 mm • 105 × 600 mm • 105 × 750 mm • 105 × 900 mm",
     startingPrice: "₹2,832",
     priceMatrix: {
       "1 FT": { SATIN: 2832, "GOLD / R GOLD": 4248, BLACK: 4720 },
@@ -111,15 +123,21 @@ export const products = [
     image: "/images/products/clx-8004.png",
     colorsImage: "/images/products/clx-8004-colors.png",
     finishes: ["SATIN", "GOLD / R GOLD", "BLACK"],
-    sizes: [
-      '1 FT / 100 × 300 mm',
-      '1.5 FT / 100 × 450 mm',
-      '2 FT / 100 × 600 mm',
-      '2.5 FT / 100 × 750 mm',
-      '3 FT / 100 × 900 mm',
-      '4 FT / 100 × 1200 mm'
+    availableSizes: [
+      "105 × 300 mm",
+      "105 × 450 mm",
+      "105 × 600 mm",
+      "105 × 750 mm",
+      "105 × 900 mm"
     ],
-    sizeShort: "1 FT • 1.5 FT • 2 FT • 2.5 FT • 3 FT • 4 FT",
+    sizes: [
+      '105 × 300 mm',
+      '105 × 450 mm',
+      '105 × 600 mm',
+      '105 × 750 mm',
+      '105 × 900 mm'
+    ],
+    sizeShort: "105 × 300 mm • 105 × 450 mm • 105 × 600 mm • 105 × 750 mm • 105 × 900 mm",
     startingPrice: "₹2,832",
     priceMatrix: {
       "1 FT": { SATIN: 2832, "GOLD / R GOLD": 4248, BLACK: 4720 },
@@ -152,8 +170,12 @@ export const products = [
     image: "/images/products/clx-801.png",
     colorsImage: "/images/products/clx-801-colors.png",
     finishes: ["SATIN", "GOLD / R GOLD", "BLACK"],
-    sizes: ['150 × 150 mm (6" × 6")'],
-    sizeShort: '150 × 150 mm (6" × 6")',
+    availableSizes: [
+      "125 × 125 mm",
+      "150 × 150 mm"
+    ],
+    sizes: ['125 × 125 mm', '150 × 150 mm'],
+    sizeShort: '125 × 125 mm • 150 × 150 mm',
     startingPrice: "₹710",
     priceMatrix: {
       '150 × 150 mm': { SATIN: 710, "GOLD / R GOLD": 2125, BLACK: 2520 }
@@ -174,8 +196,12 @@ export const products = [
     image: "/images/products/clx-802.png",
     colorsImage: "/images/products/clx-802-colors.png",
     finishes: ["SATIN", "GOLD / R GOLD", "BLACK"],
-    sizes: ['150 × 150 mm (6" × 6")'],
-    sizeShort: '150 × 150 mm (6" × 6")',
+    availableSizes: [
+      "125 × 125 mm",
+      "150 × 150 mm"
+    ],
+    sizes: ['125 × 125 mm', '150 × 150 mm'],
+    sizeShort: '125 × 125 mm • 150 × 150 mm',
     startingPrice: "₹710",
     priceMatrix: {
       '150 × 150 mm': { SATIN: 710, "GOLD / R GOLD": 2125, BLACK: 2520 }
@@ -196,8 +222,12 @@ export const products = [
     image: "/images/products/clx-807.png",
     colorsImage: "/images/products/clx-807-colors.png",
     finishes: ["SATIN", "GOLD / R GOLD", "BLACK"],
-    sizes: ['150 × 150 mm (6" × 6")'],
-    sizeShort: '150 × 150 mm (6" × 6")',
+    availableSizes: [
+      "125 × 125 mm",
+      "150 × 150 mm"
+    ],
+    sizes: ['125 × 125 mm', '150 × 150 mm'],
+    sizeShort: '125 × 125 mm • 150 × 150 mm',
     startingPrice: "₹710",
     priceMatrix: {
       '150 × 150 mm': { SATIN: 710, "GOLD / R GOLD": 2125, BLACK: 2520 }
@@ -220,8 +250,12 @@ export const products = [
     image: "/images/products/clx-804.png",
     colorsImage: "/images/products/clx-804-colors.png",
     finishes: ["SATIN", "GOLD / R GOLD", "BLACK"],
-    sizes: ['150 × 150 mm (6" × 6")'],
-    sizeShort: '150 × 150 mm (6" × 6")',
+    availableSizes: [
+      "125 × 125 mm",
+      "150 × 150 mm"
+    ],
+    sizes: ['125 × 125 mm', '150 × 150 mm'],
+    sizeShort: '125 × 125 mm • 150 × 150 mm',
     startingPrice: "₹1,849",
     priceMatrix: {
       '150 × 150 mm': { SATIN: 1849, "GOLD / R GOLD": 3540, BLACK: 4327 }
@@ -349,10 +383,11 @@ export const products = [
   },
   {
     id: "tile-leveling-system",
-    code: "CLX TLS",
+    code: "Wedges and Clips",
+    variant: "Wedges and Clips",
     name: "Tile Leveling System",
     series: "Tile Accessories",
-    model: "CLX Tile Leveling System",
+    model: "Tile Leveling System — Wedges and Clips",
     category: "other-products",
     categoryLabel: "Other Products",
     material: "High-Grade Polymer",
@@ -366,10 +401,11 @@ export const products = [
   },
   {
     id: "tile-pushing-system",
-    code: "CLX TPS",
-    name: "Tile Pushing System",
+    code: "Jack",
+    variant: "Jack",
+    name: "Tile Leveling System",
     series: "Tile Accessories",
-    model: "CLX Tile Pushing System",
+    model: "Tile Leveling System — Jack",
     category: "other-products",
     categoryLabel: "Other Products",
     material: "High-Grade Polymer & Steel Pin",
@@ -383,10 +419,11 @@ export const products = [
   },
   {
     id: "tile-spacer",
-    code: "CLX TS",
+    code: "Spacer",
+    variant: "Spacer",
     name: "Tile Spacer",
     series: "Tile Accessories",
-    model: "CLX Tile Spacer",
+    model: "Tile Spacer — Spacer",
     category: "other-products",
     categoryLabel: "Other Products",
     material: "Precision Polymer",
