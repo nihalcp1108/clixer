@@ -94,5 +94,46 @@
   </div>
 
   <script src="js/script.js"></script>
+  <script>
+    (async function loadLiveProductDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const prodId = params.get('id') || params.get('product');
+      if (!prodId) return;
+
+      const backendBase = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:5000' : '';
+      const apiUrls = [`/api/products/${encodeURIComponent(prodId)}`];
+      if (backendBase) apiUrls.push(`${backendBase}/api/products/${encodeURIComponent(prodId)}`);
+      let product = null;
+
+      for (const url of apiUrls) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            const data = await res.json();
+            product = data.product || data;
+            if (product && product.name) break;
+          }
+        } catch (_) {}
+      }
+
+      if (!product) return;
+
+      const imgEl = document.querySelector('.product-main-image');
+      const nameEl = document.querySelector('.glass-card h3');
+      const codeEl = document.querySelector('.glass-card p');
+      const sizesContainer = document.querySelector('.available-sizes-section div');
+
+      const img = product.image && product.image.startsWith('/uploads') ? `${backendBase}${product.image}` : (product.image || '');
+      if (imgEl && img) imgEl.src = img;
+      if (nameEl) nameEl.textContent = product.name;
+      if (codeEl) codeEl.textContent = product.model || product.code || '';
+
+      if (sizesContainer && product.availableSizes && product.availableSizes.length > 0) {
+        sizesContainer.innerHTML = product.availableSizes.map(s => `
+          <span class="size-chip" style="font-size: 0.88rem; font-weight: 600; padding: 0.55rem 0.95rem; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 8px; color: #0f172a;">${s}</span>
+        `).join('');
+      }
+    })();
+  </script>
 </body>
 </html>

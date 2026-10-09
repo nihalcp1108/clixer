@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#2c3036" />
+      <stop offset="60%" stop-color="#1a1c20" />
+      <stop offset="100%" stop-color="#0f1012" />
+    </radialGradient>
+
+    <!-- Metallic Base Top Face Gradient -->
+    <linearGradient id="metalTop_satin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#cbd5e1" />
+      <stop offset="70%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+
+    <!-- Wall Front Gradient -->
+    <linearGradient id="metalWallFront_satin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="50%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <!-- Cup Basin Depth Radial Gradient -->
+    <radialGradient id="cupDepth" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="60%" stop-color="#0f172a" />
+      <stop offset="85%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </radialGradient>
+
+    <!-- Drop Shadow Filter for Tray -->
+    <filter id="trayShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="-18" dy="28" stdDeviation="16" flood-color="#000000" flood-opacity="0.75" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" rx="16" fill="url(#bgGrad)" />
+
+  <!-- Grid texture accent -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <path d="M0 100 H1000 M0 200 H1000 M0 300 H1000 M0 400 H1000 M0 500 H1000 M0 600 H1000" />
+    <path d="M100 0 V700 M200 0 V700 M300 0 V700 M400 0 V700 M500 0 V700 M600 0 V700 M700 0 V700 M800 0 V700 M900 0 V700" />
+  </g>
+
+  <!-- LOWER BASE ASSEMBLY (CLX 804 OUTER FRAME & STRAINER BOWL) -->
+  <g id="lowerBaseFrame">
+    <!-- Bottom Outlet Drain Collar Cylinder (Depth extension) -->
+    <ellipse cx="660" cy="545" rx="110" ry="45" fill="#090d16" stroke="#334155" stroke-width="3" />
+    <path d="M550 545 C550 585 770 585 770 545 V560 C770 600 550 600 550 560 Z" fill="url(#metalWallFront_satin)" opacity="0.9" />
+
+    <!-- Outer Frame Vertical Front Wall -->
+    <path d="M410 495 L880 485 V520 C880 535 865 540 850 540 L440 550 C420 550 410 540 410 520 Z" fill="url(#metalWallFront_satin)" />
+
+    <!-- Outer Frame Left Wall -->
+    <path d="M370 280 L410 495 V535 L370 315 Z" fill="url(#metalWallFront_satin)" opacity="0.8" />
+
+    <!-- Outer Frame Top Face Rim (Main Square Frame) -->
+    <path d="M370 280 C370 270 385 265 400 265 L850 255 C865 255 880 265 880 275 L920 470 C925 480 910 490 895 490 L440 500 C425 500 410 490 410 480 Z" fill="url(#metalTop_satin)" stroke="#94a3b8" stroke-width="1.5" />
+
+    <!-- Inner Recess Walls (Deep draw inner cavity) -->
+    <path d="M400 295 L845 285 L880 465 L435 475 Z" fill="#0f172a" />
+    <path d="M400 295 L845 285 L845 305 L400 315 Z" fill="url(#metalWallFront_satin)" opacity="0.6" />
+    <path d="M400 295 L435 475 L435 490 L400 315 Z" fill="url(#metalWallFront_satin)" opacity="0.4" />
+
+    <!-- Top-Right Alignment Notch Recess (Exact to Photo) -->
+    <path d="M790 283 C790 278 810 278 810 283 L810 295 L790 295 Z" fill="#1e293b" stroke="#64748b" stroke-width="1" />
+
+    <!-- Sunken Circular Bowl Basin (Center Drain Cup) -->
+    <ellipse cx="655" cy="385" rx="175" ry="95" fill="url(#cupDepth)" stroke="#94a3b8" stroke-width="2" />
+    
+    <!-- Concentric Ridge Ring Step -->
+    <ellipse cx="655" cy="385" rx="145" ry="78" fill="none" stroke="#475569" stroke-width="3" opacity="0.7" />
+    <ellipse cx="655" cy="385" rx="125" ry="68" fill="none" stroke="#94a3b8" stroke-width="1.5" opacity="0.5" />
+
+    <!-- STRAINER PLATE WITH FLORAL PETAL SLOTS & CENTER HOLES -->
+    <g id="floralStrainer">
+      <!-- Strainer Plate Base Metal Disk -->
+      <ellipse cx="655" cy="385" rx="105" ry="56" fill="url(#metalTop_satin)" stroke="#475569" stroke-width="1.5" />
+      
+      <!-- Center Hole Circle Ring -->
+      <circle cx="655" cy="385" r="4" fill="#020617" />
+      <circle cx="643" cy="382" r="2.5" fill="#020617" />
+      <circle cx="667" cy="388" r="2.5" fill="#020617" />
+      <circle cx="652" cy="377" r="2.5" fill="#020617" />
+      <circle cx="658" cy="393" r="2.5" fill="#020617" />
+
+      <!-- 8 Radial Teardrop Floral Petal Drain Slots -->
+      <!-- Petal 1 (Top) -->
+      <path d="M655 352 C650 362 650 370 655 372 C660 370 660 362 655 352 Z" fill="#020617" />
+      <!-- Petal 2 (Bottom) -->
+      <path d="M655 418 C650 408 650 400 655 398 C660 400 660 408 655 418 Z" fill="#020617" />
+      <!-- Petal 3 (Right) -->
+      <path d="M710 385 C695 380 682 380 680 385 C682 390 695 390 710 385 Z" fill="#020617" />
+      <!-- Petal 4 (Left) -->
+      <path d="M600 385 C615 380 628 380 630 385 C628 390 615 390 600 385 Z" fill="#020617" />
+      <!-- Petals 5, 6, 7, 8 (Diagonals) -->
+      <path d="M692 360 C680 364 670 370 671 374 C675 375 683 371 692 360 Z" fill="#020617" />
+      <path d="M618 410 C630 406 640 400 639 396 C635 395 627 399 618 410 Z" fill="#020617" />
+      <path d="M692 410 C683 399 675 395 671 396 C670 400 680 406 692 410 Z" fill="#020617" />
+      <path d="M618 360 C627 371 635 375 639 374 C640 370 630 364 618 360 Z" fill="#020617" />
+    </g>
+  </g>
+
+  <!-- SHIFTED TILE INSERT TRAY ASSEMBLY (TOP-LEFT) -->
+  <g id="tileInsertTray" transform="translate(-187, -72)" filter="url(#trayShadow)">
+    <!-- Tray Box Outer Front Wall -->
+    <path d="M160 450 L630 440 V465 C630 472 620 475 605 475 L180 485 C165 485 160 478 160 465 Z" fill="url(#metalWallFront_satin)" />
+
+    <!-- Tray Box Outer Left Wall -->
+    <path d="M125 240 L160 450 V485 L125 270 Z" fill="url(#metalWallFront_satin)" opacity="0.85" />
+
+    <!-- Tray Top Surface Frame (Rim) -->
+    <path d="M125 240 C125 230 140 225 155 225 L600 215 C615 215 630 225 630 235 L665 430 C670 440 655 448 640 448 L180 458 C165 458 150 448 150 438 Z" fill="url(#metalTop_satin)" stroke="#94a3b8" stroke-width="1.5" />
+
+    <!-- Inner Tray Bed Cavity / Tile Inset Bed -->
+    <g id="trayInfillBed">
+      <path d="M145 250 L590 240 L620 425 L175 435 Z" fill="url(#metalTop_satin)" stroke="#64748b" stroke-width="1" />
+      <path d="M145 250 L590 240 L590 248 L145 258 Z" fill="#0f172a" opacity="0.5" />
+      <path d="M145 250 L175 435 L170 435 L140 250 Z" fill="#0f172a" opacity="0.4" />
+    </g>
+
+    <!-- Oval Finger Lifting Notch on Top Side Wall (Exact to Photo) -->
+    <ellipse cx="370" cy="232" rx="22" ry="7" fill="#0f172a" stroke="#64748b" stroke-width="1" />
+    <ellipse cx="370" cy="232" rx="18" ry="5" fill="#020617" />
+
+    <!-- Oval Finger Lifting Notch on Bottom Side Wall (Exact to Photo) -->
+    <ellipse cx="395" cy="448" rx="22" ry="7" fill="#0f172a" stroke="#64748b" stroke-width="1" />
+    <ellipse cx="395" cy="448" rx="18" ry="5" fill="#020617" />
+  </g>
+
+  <!-- BRAND & SPECIFICATION OVERLAY BADGES -->
+  <g id="brandOverlays">
+    <rect x="35" y="35" width="230" height="90" rx="10" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1.5" />
+    <text x="55" y="65" font-family="sans-serif" font-weight="900" font-size="20" fill="#ffffff" letter-spacing="1">CLX 804</text>
+    <text x="55" y="86" font-family="sans-serif" font-weight="700" font-size="12" fill="#38bdf8" letter-spacing="2">PREMIUM TILE INSERT</text>
+    <text x="55" y="106" font-family="sans-serif" font-weight="500" font-size="11" fill="#94a3b8">AISI 304 STAINLESS STEEL</text>
+  </g>
+</svg>

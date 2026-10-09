@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://clixer.in/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/branding/clixer-logo-lg.png</image:loc>
+      <image:title>CLIXER AISI 304 Sanitary Systems</image:title>
+    </image:image>
+  </url>
+
+  <!-- Categories -->
+  <url>
+    <loc>https://clixer.in/?category=channel-drainers</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?category=designer-drainers</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?category=floor-drainers</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?category=cockroach-bowl</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?category=tile-leveling</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Products -->
+  <url>
+    <loc>https://clixer.in/?product=clx-8002</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-8002.png</image:loc>
+      <image:title>CLX 8002 Linear Channel Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-8005</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-8005.png</image:loc>
+      <image:title>CLX 8005 Wave Channel Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-8004</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-8004.png</image:loc>
+      <image:title>CLX 8004 Tile Insert Channel Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-801</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-801.png</image:loc>
+      <image:title>CLX 801 Cross-Hatch Square Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-802</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-802.png</image:loc>
+      <image:title>CLX 802 Grid Dot Square Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-807</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-807.png</image:loc>
+      <image:title>CLX 807 Chevron Square Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-804</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-804.png</image:loc>
+      <image:title>CLX 804 Square Tile Insert Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-101</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-101.png</image:loc>
+      <image:title>CLX 101 Flat Cut Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-102</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-102.png</image:loc>
+      <image:title>CLX 102 Flat Cut Grid Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-103</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-103.png</image:loc>
+      <image:title>CLX 103 Flat Cut Frame Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=clx-110</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/clx-110.png</image:loc>
+      <image:title>CLX 110 Flat Cut Slotted Drainer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=cockroach-bowl</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/cockroach-bowl.png</image:loc>
+      <image:title>Clixer Stainless Steel Cockroach Trap Bowl</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://clixer.in/?product=tile-leveling-system</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://clixer.in/images/products/tile-leveling-hero.png</image:loc>
+      <image:title>Clixer Professional Tile Leveling System</image:title>
+    </image:image>
+  </url>
+
+</urlset>
